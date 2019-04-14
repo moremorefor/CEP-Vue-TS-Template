@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="{{bundleId}}">
+        <HostList>
+
+            <!-- Comment Host tags according to the apps you want your panel to support -->
+
+            <!-- Photoshop -->
+            <Host Name="PHXS" Port="{{debugPort}}"/>
+
+            <!-- Illustrator -->
+            <Host Name="ILST" Port="{{debugPort}}"/>
+
+            <!-- InDesign -->
+            <Host Name="IDSN" Port="{{debugPort}}" />
+
+            <!-- Premiere -->
+            <Host Name="PPRO" Port="{{debugPort}}" />
+
+            <!-- AfterEffects -->
+            <Host Name="AEFT" Port="{{debugPort}}" />
+
+            <!-- PRELUDE -->
+            <Host Name="PRLD" Port="{{debugPort}}" />
+
+            <!-- FLASH Pro -->
+            <Host Name="FLPR" Port="{{debugPort}}" />
+
+        </HostList>
+    </Extension>
+</ExtensionList>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExtensionManifest Version="6.0" ExtensionBundleId="{{bundleId}}" ExtensionBundleVersion="0.0.1"
+    ExtensionBundleName="{{name}}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtensionList>
+    <Extension Id="{{bundleId}}" Version="0.0.1" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+            <Host Name="PHSP" Version="16.0" />
+            <Host Name="PHXS" Version="16.0" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="6.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="{{bundleId}}">
+      <DispatchInfo >
+        <Resources>
+          <CEFCommandLine>
+              <Parameter>--enable-nodejs</Parameter>
+              <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+          <MainPath>./index.html</MainPath>
+          <!-- <ScriptPath>./jsx/hostscript.jsx</ScriptPath> -->
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Type>Panel</Type>
+          <Menu>{{name}}</Menu>
+          <Geometry>
+            <Size>
+              <Height>400</Height>
+              <Width>400</Width>
+            </Size>
+            <MaxSize>
+              <Height>2000</Height>
+              <Width>1000</Width>
+            </MaxSize>
+            <MinSize>
+              <Height>150</Height>
+              <Width>150</Width>
+            </MinSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./icons/iconNormal.png</Icon>
+            <Icon Type="RollOver">./icons/iconRollover.png</Icon>
+            <Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+            <Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
+            <Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
