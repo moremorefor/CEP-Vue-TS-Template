@@ -4,7 +4,7 @@ console.log(config)
 
 // index.html
 const htmlData = fs.readFileSync('./setup/template/index_template.html', 'utf8')
-const htmlResult = htmlData.replace(/{{name}}/g, config.name)
+const htmlResult = htmlData.replace(/{{ name }}/g, config.name)
 fs.writeFileSync('./src/index.html', htmlResult)
 
 // manifest.xml

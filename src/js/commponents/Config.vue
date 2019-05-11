@@ -23,9 +23,7 @@ import { rootModule } from '../store/modules/root'
 @Component
 export default class Config extends Vue {
   @Prop({ type: Object })
-  config = {
-    sampleConfig: ''
-  }
+  config!: object
 
   get printData() {
     return JSON.stringify(this.config, null, '    ')
