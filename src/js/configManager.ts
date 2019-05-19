@@ -1,5 +1,5 @@
 import * as fs from 'fs-extra'
-import JSXInterface from './jsxinterface'
+import JSXInterface from './jsxInterface'
 import cepUtils from './cepUtils'
 const jsxInterface = JSXInterface.getInstance()
 

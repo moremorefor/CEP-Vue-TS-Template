@@ -21,7 +21,7 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import JSXInterface from '../jsxinterface'
+import JSXInterface from '../jsxInterface'
 const jsxInterface = JSXInterface.getInstance()
 
 @Component
