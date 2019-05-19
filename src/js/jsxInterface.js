@@ -23,7 +23,9 @@ JSXInterface.prototype._sendJSXString = function(f, args) {
     self.csInterface.evalScript(f + '(' + args + ')', function(res) {
       console.log('【DEBUG】csInterface response: ', res)
       // If return; from jsx, returning 'undefined'
-      if (res !== 'undefined' && res !== 'false') {
+      if (res == 'EvalScript error.') {
+        reject(res)
+      } else if (res !== 'undefined' && res !== 'false') {
         resolve(res)
       } else {
         resolve(JSXInterface.NO_RETURN)
