@@ -4,22 +4,26 @@ module.exports = {
     browser: true,
     node: true
   },
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
+    sourceType: 'module',
     project: './tsconfig.json'
   },
   extends: [
-    'standard',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
     'plugin:vue/recommended',
     '@vue/prettier',
-    '@vue/typescript'
+    '@vue/typescript',
+    'prettier/@typescript-eslint'
   ],
-  plugins: ['@typescript-eslint', 'vue'],
+  plugins: ['@typescript-eslint', 'prettier', 'vue'],
   rules: {
     'no-multi-spaces': 'off',
     'no-undef': 'warn',
     'no-console': 'warn',
-    indent: 'warn',
+    '@typescript-eslint/indent': ['warn', 2],
     'prettier/prettier': [
       'error',
       {
