@@ -19,8 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
-
+import { Component } from 'vue-property-decorator'
 import JSXInterface from '../jsxInterface'
 const jsxInterface = JSXInterface.getInstance()
 

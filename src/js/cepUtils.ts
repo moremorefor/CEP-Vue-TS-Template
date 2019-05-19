@@ -1,3 +1,5 @@
+import { CSInterface, SystemPath } from 'csinterface-ts'
+
 class CEPUtils {
   _csInterface: any
   _appName: string

@@ -6,7 +6,9 @@
     "module": "es2015",
     "moduleResolution": "node",
     "target": "es5",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": ["node_modules/@types", "src/js/@types"]
   },
-  "include": ["./src/**/*"]
+  "exclude": ["node_modules", "src/js/libs"],
+  "include": ["src/**/*"]
 }

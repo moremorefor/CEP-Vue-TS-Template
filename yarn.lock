@@ -2039,6 +2039,10 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+csinterface-ts@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/csinterface-ts/-/csinterface-ts-1.0.3.tgz#5945041fe0089ee2c793c6e13a8134032f0118ef"
+
 css-loader@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-1.0.1.tgz#6885bb5233b35ec47b006057da01cc640b6b79fe"

@@ -1,6 +1,7 @@
 import cepUtils from './cepUtils'
+import { CSInterface } from 'csinterface-ts'
 
-class JSXInterface {
+export default class JSXInterface {
   private static _instance: JSXInterface
   private csInterface: CSInterface
 
@@ -64,8 +65,9 @@ class JSXInterface {
   public registerInclude(filepath: string) {
     const filePath = cepUtils.getRootPath() + filepath
     console.log('registerInclude: ', filePath)
-    this.csInterface.evalScript('$.evalFile("' + filePath + '")')
+    this.csInterface.evalScript(
+      '$.evalFile("' + filePath + '")',
+      (result: any) => {}
+    )
   }
 }
-
-export default JSXInterface

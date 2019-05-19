@@ -2,9 +2,11 @@
 
 import App from './App.vue'
 import Vue from 'vue'
+import { CSInterface, SystemPath } from 'csinterface-ts'
 import { store } from './store'
 import configManager from './configManager'
 import JSXInterface from './jsxInterface'
+import ThemeManager from './themeManager'
 
 const jsxInterface = JSXInterface.getInstance()
 const csInterface = new CSInterface()
@@ -29,7 +31,7 @@ function isNodeJSEnabled() {
 }
 
 async function init() {
-  themeManager.init()
+  new ThemeManager()
 
   // Sample Events
   csInterface.addEventListener(
@@ -67,15 +69,15 @@ async function init() {
     store
   }).$mount('#app')
 
-  $('#btn_reload').click(function() {
+  $('#btn_reload').click(function () {
     window.location.reload()
   })
 
-  $('#btn_close').click(function() {
+  $('#btn_close').click(function () {
     csInterface.closeExtension()
   })
 
-  $('#btn_hello').click(function() {
+  $('#btn_hello').click(function () {
     jsxInterface.evaluateJSX('jsxAlert', { content: 'hello' })
   })
 }
