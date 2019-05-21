@@ -1,16 +1,16 @@
-/*eslint-disable */
-preferences.rulerUnits = Units.PIXELS
+/// <reference types="./@types/Photoshop/2015.5"/>
+app.preferences.rulerUnits = Units.PIXELS
 
-function jsxAlert(args) {
+function jsxAlert(args: any) {
   var content = args['content']
   alert(content)
 }
 
-function historyCall(args) {
+function historyCall(args: any) {
   var func = args['func']
   var params = args['params']
   try {
-    activeDocument
+    app.activeDocument
   } catch (e) {
     alert(
       'Active document not found.\nsuspendHistory is active document required.'
@@ -18,16 +18,16 @@ function historyCall(args) {
   }
 
   if (params) {
-    activeDocument.suspendHistory(func, func + '(params)')
+    app.activeDocument.suspendHistory(func, func + '(params)')
   } else {
-    activeDocument.suspendHistory(func, func + '()')
+    app.activeDocument.suspendHistory(func, func + '()')
   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // File
 ///////////////////////////////////////////////////////////////////////////////
-function createFolder(folderObj) {
+function createFolder(folderObj: Folder) {
   var result
   if (!folderObj.exists) {
     result = folderObj.create()
@@ -52,18 +52,18 @@ function selectFolder() {
   }
 }
 
-function recursiveFileDelete(folderObj) {
-  var files = folderObj.getFiles()
+function recursiveFileDelete(folderObj: Folder) {
+  var files = folderObj.getFiles(null)
   if (files.length > 0) {
     for (var i = 0; i < files.length; i++) {
       if (!files[i].remove()) {
-        recursiveFileDelete(files[i])
+        recursiveFileDelete(files[i] as Folder)
       }
     }
   }
 }
 
-function getFileList(args) {
+function getFileList(args: any) {
   var folderPath = args['folderPath']
   var folderObj = new Folder(folderPath)
   var files = folderObj.getFiles(args['ext'])
@@ -79,7 +79,7 @@ function getFileList(args) {
   }
 }
 
-function selectFile(dialogText, fileFilter, multipleFlag) {
+function selectFile(dialogText: string, fileFilter?: string, multipleFlag?: boolean) {
   var title = dialogText || 'Select File...'
   var fileObj = File.openDialog(title, fileFilter, multipleFlag)
   if (!fileObj) {
@@ -90,7 +90,7 @@ function selectFile(dialogText, fileFilter, multipleFlag) {
   }
 }
 
-function readFile(args) {
+function readFile(args: any) {
   var path = args['path']
   var fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
@@ -101,7 +101,7 @@ function readFile(args) {
   }
 }
 
-function writeFile(args) {
+function writeFile(args: any) {
   var path = args['path']
   var txt = args['content']
 
@@ -109,7 +109,7 @@ function writeFile(args) {
   fileObj.encoding = 'UTF-8'
 
   // overwrite
-  flag = fileObj.open('w')
+  var flag = fileObj.open('w')
   if (flag === true) {
     var text = txt
     fileObj.writeln(text)
@@ -124,55 +124,55 @@ function writeFile(args) {
 ///////////////////////////////////////////////////////////////////////////////
 // Layer Utils
 ///////////////////////////////////////////////////////////////////////////////
-function getLayerReference(index) {
-  var idTrnf = charIDToTypeID('Trnf')
+function getLayerReference(index: number) {
+  var idTrnf = app.charIDToTypeID('Trnf')
   var desc48 = new ActionDescriptor()
-  var idnull = charIDToTypeID('null')
+  var idnull = app.charIDToTypeID('null')
   var ref36 = new ActionReference()
-  var idLyr = charIDToTypeID('Lyr ')
-  var idOrdn = charIDToTypeID('Ordn')
-  var idTrgt = charIDToTypeID('Trgt')
+  var idLyr = app.charIDToTypeID('Lyr ')
+  var idOrdn = app.charIDToTypeID('Ordn')
+  var idTrgt = app.charIDToTypeID('Trgt')
   ref36.putEnumerated(idLyr, idOrdn, idTrgt)
   desc48.putReference(idnull, ref36)
 }
 
 function getSelectedLayersIdx() {
-  var selectedLayers = new Array()
+  var selectedLayers = []
   var ref = new ActionReference()
   ref.putEnumerated(
-    charIDToTypeID('Dcmn'),
-    charIDToTypeID('Ordn'),
-    charIDToTypeID('Trgt')
+    app.charIDToTypeID('Dcmn'),
+    app.charIDToTypeID('Ordn'),
+    app.charIDToTypeID('Trgt')
   )
-  var desc = executeActionGet(ref)
-  if (desc.hasKey(stringIDToTypeID('targetLayers'))) {
-    desc = desc.getList(stringIDToTypeID('targetLayers'))
-    var c = desc.count
-    var selectedLayers = new Array()
+  var desc = app.executeActionGet(ref)
+  if (desc.hasKey(app.stringIDToTypeID('targetLayers'))) {
+    var descList = desc.getList(app.stringIDToTypeID('targetLayers'))
+    var c = descList.count
+    var selectedLayers = []
     for (var i = c - 1; i >= 0; i--) {
       try {
-        activeDocument.backgroundLayer
-        selectedLayers.push(desc.getReference(i).getIndex())
+        app.activeDocument.backgroundLayer
+        selectedLayers.push(descList.getReference(i).getIndex())
       } catch (e) {
-        selectedLayers.push(desc.getReference(i).getIndex() + 1)
+        selectedLayers.push(descList.getReference(i).getIndex() + 1)
       }
     }
   } else {
     var ref = new ActionReference()
-    ref.putProperty(charIDToTypeID('Prpr'), charIDToTypeID('ItmI'))
+    ref.putProperty(app.charIDToTypeID('Prpr'), app.charIDToTypeID('ItmI'))
     ref.putEnumerated(
-      charIDToTypeID('Lyr '),
-      charIDToTypeID('Ordn'),
-      charIDToTypeID('Trgt')
+      app.charIDToTypeID('Lyr '),
+      app.charIDToTypeID('Ordn'),
+      app.charIDToTypeID('Trgt')
     )
     try {
-      activeDocument.backgroundLayer
+      app.activeDocument.backgroundLayer
       selectedLayers.push(
-        executeActionGet(ref).getInteger(charIDToTypeID('ItmI')) - 1
+        app.executeActionGet(ref).getInteger(app.charIDToTypeID('ItmI')) - 1
       )
     } catch (e) {
       selectedLayers.push(
-        executeActionGet(ref).getInteger(charIDToTypeID('ItmI'))
+        app.executeActionGet(ref).getInteger(app.charIDToTypeID('ItmI'))
       )
     }
     var vis = app.activeDocument.activeLayer.visible
@@ -181,13 +181,13 @@ function getSelectedLayersIdx() {
     var list9 = new ActionList()
     var ref9 = new ActionReference()
     ref9.putEnumerated(
-      charIDToTypeID('Lyr '),
-      charIDToTypeID('Ordn'),
-      charIDToTypeID('Trgt')
+      app.charIDToTypeID('Lyr '),
+      app.charIDToTypeID('Ordn'),
+      app.charIDToTypeID('Trgt')
     )
     list9.putReference(ref9)
-    desc9.putList(charIDToTypeID('null'), list9)
-    executeAction(charIDToTypeID('Shw '), desc9, DialogModes.NO)
+    desc9.putList(app.charIDToTypeID('null'), list9)
+    app.executeAction(app.charIDToTypeID('Shw '), desc9, DialogModes.NO)
     if (app.activeDocument.activeLayer.visible == false) selectedLayers.shift()
     app.activeDocument.activeLayer.visible = vis
   }

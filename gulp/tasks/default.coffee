@@ -5,6 +5,7 @@ runSequence = require 'run-sequence'
 gulp.task 'default', ['del'], ->
   runSequence(
     'sass',
+    'typescript',
     'webpack',
     'copy'
     'deploy',

@@ -10,5 +10,5 @@
     "typeRoots": ["node_modules/@types", "src/js/@types"]
   },
   "exclude": ["node_modules", "src/js/libs"],
-  "include": ["src/**/*"]
+  "include": ["src/js/**/*"]
 }

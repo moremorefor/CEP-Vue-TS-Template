@@ -29,7 +29,7 @@ path =
     scss   : srcDir + '/**/*.scss'
     js     : srcDir + '/js/**/*.js'
     ts     : srcDir + '/js/**/*.ts'
-    jsx    : srcDir + '/jsx/*.jsx'
+    jsx    : srcDir + '/jsx/**/*.ts'
     png    : srcDir + '/**/*.png'
     jpg    : srcDir + '/**/*.jpg'
     gif    : srcDir + '/**/*.gif'
