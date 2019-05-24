@@ -4,10 +4,10 @@ import cepUtils from './cepUtils'
 const jsxInterface = JSXInterface.getInstance()
 
 class ConfigManager {
-  _dataPath: string
-  _filePath: string
+  private _dataPath: string
+  private _filePath: string
 
-  constructor() {
+  public constructor() {
     console.log('cepUtils.getRootPath(): ', cepUtils.getRootPath())
     console.log('cepUtils.getDataPath(): ', cepUtils.getDataPath())
     console.log('cepUtils.getAppName(): ', cepUtils.getAppName())
@@ -17,19 +17,19 @@ class ConfigManager {
       cepUtils.getDataPath() + '/' + cepUtils.getAppName() + '.json'
   }
 
-  createDataDirectory(dataPath: string) {
+  public createDataDirectory(dataPath: string): void {
     fs.mkdirsSync(dataPath)
   }
 
-  filePath() {
+  public filePath(): string {
     return this._filePath
   }
 
-  load() {
+  public load(): Promise<void | object> {
     return jsxInterface.evaluateJSX('readFile', { path: this._filePath })
   }
 
-  write(payload: object) {
+  public write(payload: object): Promise<void | object> {
     const json = JSON.stringify(payload, null, '\t')
     const args = { path: this._filePath, content: json }
 

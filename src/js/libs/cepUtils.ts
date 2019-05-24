@@ -1,24 +1,25 @@
 import { CSInterface, SystemPath } from 'csinterface-ts'
 
 class CEPUtils {
-  _csInterface: any
-  _appName: string
-  _rootPath: string
-  constructor() {
+  private _csInterface: CSInterface
+  private _appName: string
+  private _rootPath: string
+
+  public constructor() {
     this._csInterface = new CSInterface()
     this._appName = this.getApplicationName()
     this._rootPath = this._csInterface.getSystemPath(SystemPath.EXTENSION)
   }
 
-  getAppName() {
+  public getAppName(): string {
     return this._appName
   }
 
-  getRootPath() {
+  public getRootPath(): string {
     return this._rootPath
   }
 
-  getDataPath() {
+  public getDataPath(): string {
     const extensionPathArr = this._csInterface
       .getSystemPath(SystemPath.EXTENSION)
       .split('/')
@@ -34,7 +35,7 @@ class CEPUtils {
     return savePath + '/Adobe/CEP/extensions/' + extensionName
   }
 
-  getApplicationName() {
+  public getApplicationName(): string {
     const appID = this._csInterface.getApplicationID()
     console.log('Application: ', appID)
     switch (appID) {

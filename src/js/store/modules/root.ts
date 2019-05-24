@@ -7,32 +7,33 @@ import {
   Module
 } from 'vuex-module-decorators'
 import { store } from '../index'
-import configManager from '../../configManager'
+import configManager from '../../libs/configManager'
 
-export interface IRootState {
+export interface RootState {
   config: object
 }
 
 @Module({ dynamic: true, store, name: 'root', namespaced: true })
-export default class Root extends VuexModule implements IRootState {
-  config: object = {
+export default class Root extends VuexModule implements RootState {
+  public config: object = {
     sampleConfig: ''
   }
 
   @Mutation
-  public saveConfig(payload: object) {
+  public saveConfig(payload: object): void {
     this.config = payload
     configManager.write(payload)
   }
 
   @Action
-  public fetchConfig() {
-    return configManager.load().then((config: any) => {
-      if (config) {
-        const data = JSON.parse(config)
-        this.saveConfig(data)
+  public fetchConfig(): Promise<void | object> {
+    return configManager.load().then(
+      (config: void | object): void => {
+        if (config) {
+          this.saveConfig(config)
+        }
       }
-    })
+    )
   }
 }
 

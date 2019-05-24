@@ -1,4 +1,4 @@
-/* global window, document, CSInterface */
+/* global window, document */
 
 /*
     Responsible for overwriting CSS at runtime according to CC app
@@ -7,9 +7,9 @@
 import { CSInterface, RGBColor, AppSkinInfo } from 'csinterface-ts'
 
 export default class ThemeManager {
-  csInterface: CSInterface
+  private csInterface: CSInterface
 
-  computeValue(value: number, delta?: number) {
+  private computeValue(value: number, delta?: number): string {
     let computedValue = delta != null ? value + delta : value
     if (computedValue < 0) {
       computedValue = 0
@@ -25,7 +25,7 @@ export default class ThemeManager {
       : computedValueString
   }
 
-  toHex(color: RGBColor, delta?: number) {
+  private toHex(color: RGBColor, delta?: number): string {
     let hex = ''
     if (color) {
       hex =
@@ -36,7 +36,7 @@ export default class ThemeManager {
     return hex
   }
 
-  reverseColor(color: RGBColor, delta: number) {
+  private reverseColor(color: RGBColor, delta: number): string {
     return this.toHex(
       {
         red: Math.abs(255 - color.red),
@@ -48,7 +48,7 @@ export default class ThemeManager {
     )
   }
 
-  addRule(stylesheetId: string, selector: string, rule: string) {
+  private addRule(stylesheetId: string, selector: string, rule: string): void {
     const stylesheetElement = document.getElementById(stylesheetId)
     let stylesheet
     if (stylesheetElement)
@@ -70,7 +70,7 @@ export default class ThemeManager {
   /**
    * Update the theme with the AppSkinInfo retrieved from the host product.
    */
-  updateThemeWithAppSkinInfo(appSkinInfo: AppSkinInfo) {
+  public updateThemeWithAppSkinInfo(appSkinInfo: AppSkinInfo): void {
     var panelBgColor = appSkinInfo.panelBackgroundColor.color as RGBColor
     var bgdColor = this.toHex(panelBgColor)
 
@@ -150,13 +150,14 @@ export default class ThemeManager {
     this.addRule(styleId, '.hostButton', 'border-color: ' + '#' + lightBgdColor)
   }
 
-  onAppThemeColorChanged = (event: string) => {
+  public onAppThemeColorChanged = (event: string): void => {
     console.log('onAppThemeColorChanged: ', event)
-    const skinInfo = JSON.parse(window.__adobe_cep__.getHostEnvironment()).appSkinInfo
+    const skinInfo = JSON.parse(window.__adobe_cep__.getHostEnvironment())
+      .appSkinInfo
     this.updateThemeWithAppSkinInfo(skinInfo)
   }
 
-  constructor() {
+  public constructor() {
     this.csInterface = new CSInterface()
 
     this.updateThemeWithAppSkinInfo(

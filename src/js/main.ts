@@ -3,19 +3,16 @@
 import App from './App.vue'
 import Vue from 'vue'
 import { CSInterface, SystemPath } from 'csinterface-ts'
+import * as fs from 'fs'
 import { store } from './store'
-import configManager from './configManager'
-import JSXInterface from './jsxInterface'
-import ThemeManager from './themeManager'
+import configManager from './libs/configManager'
+import JSXInterface from './libs/jsxInterface'
+import ThemeManager from './libs/themeManager'
 
 const jsxInterface = JSXInterface.getInstance()
 const csInterface = new CSInterface()
-var fs = require('fs')
 
-isNodeJSEnabled()
-init()
-
-function isNodeJSEnabled() {
+function isNodeJSEnabled(): void {
   console.log('Node.js')
   if (typeof require !== 'undefined') {
     console.log(
@@ -30,20 +27,20 @@ function isNodeJSEnabled() {
   }
 }
 
-async function init() {
+async function init(): Promise<any> {
   new ThemeManager()
 
   // Sample Events
   csInterface.addEventListener(
     'documentAfterActivate',
-    () => {
+    (): void => {
       console.log('CEP Application Events: documentAfterActivate')
     },
     null
   )
   csInterface.addEventListener(
     'documentAfterDeactivate',
-    () => {
+    (): void => {
       console.log('CEP Application Events: documentAfterDeactivate')
     },
     null
@@ -55,7 +52,7 @@ async function init() {
 
   // Config
   const config = await configManager.load()
-  if (config !== JSXInterface.NO_RETURN) {
+  if (config) {
     console.log('loadConfig Content: ', config)
   } else {
     console.log('no config', config)
@@ -69,15 +66,24 @@ async function init() {
     store
   }).$mount('#app')
 
-  $('#btn_reload').click(function () {
-    window.location.reload()
-  })
+  $('#btn_reload').click(
+    (): void => {
+      window.location.reload()
+    }
+  )
 
-  $('#btn_close').click(function () {
-    csInterface.closeExtension()
-  })
+  $('#btn_close').click(
+    (): void => {
+      csInterface.closeExtension()
+    }
+  )
 
-  $('#btn_hello').click(function () {
-    jsxInterface.evaluateJSX('jsxAlert', { content: 'hello' })
-  })
+  $('#btn_hello').click(
+    (): void => {
+      jsxInterface.evaluateJSX('jsxAlert', { content: 'hello' })
+    }
+  )
 }
+
+isNodeJSEnabled()
+init()

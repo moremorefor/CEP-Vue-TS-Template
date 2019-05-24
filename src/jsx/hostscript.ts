@@ -1,12 +1,14 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /// <reference types="./@types/Photoshop/2015.5"/>
 app.preferences.rulerUnits = Units.PIXELS
 
-function jsxAlert(args: any) {
+function jsxAlert(args: any): void {
   var content = args['content']
   alert(content)
 }
 
-function historyCall(args: any) {
+function historyCall(args: any): void {
   var func = args['func']
   var params = args['params']
   try {
@@ -27,7 +29,18 @@ function historyCall(args: any) {
 ///////////////////////////////////////////////////////////////////////////////
 // File
 ///////////////////////////////////////////////////////////////////////////////
-function createFolder(folderObj: Folder) {
+function recursiveFileDelete(folderObj: Folder): void {
+  var files = folderObj.getFiles(null)
+  if (files.length > 0) {
+    for (var i = 0; i < files.length; i++) {
+      if (!files[i].remove()) {
+        recursiveFileDelete(files[i] as Folder)
+      }
+    }
+  }
+}
+
+function createFolder(folderObj: Folder): boolean {
   var result
   if (!folderObj.exists) {
     result = folderObj.create()
@@ -42,7 +55,7 @@ function createFolder(folderObj: Folder) {
   return true
 }
 
-function selectFolder() {
+function selectFolder(): Folder | boolean {
   var folderObj = Folder.selectDialog('Select Folder...')
 
   if (folderObj) {
@@ -52,18 +65,7 @@ function selectFolder() {
   }
 }
 
-function recursiveFileDelete(folderObj: Folder) {
-  var files = folderObj.getFiles(null)
-  if (files.length > 0) {
-    for (var i = 0; i < files.length; i++) {
-      if (!files[i].remove()) {
-        recursiveFileDelete(files[i] as Folder)
-      }
-    }
-  }
-}
-
-function getFileList(args: any) {
+function getFileList(args: any): string | void {
   var folderPath = args['folderPath']
   var folderObj = new Folder(folderPath)
   var files = folderObj.getFiles(args['ext'])
@@ -79,7 +81,11 @@ function getFileList(args: any) {
   }
 }
 
-function selectFile(dialogText: string, fileFilter?: string, multipleFlag?: boolean) {
+function selectFile(
+  dialogText: string,
+  fileFilter?: string,
+  multipleFlag?: boolean
+): File | Folder | boolean {
   var title = dialogText || 'Select File...'
   var fileObj = File.openDialog(title, fileFilter, multipleFlag)
   if (!fileObj) {
@@ -90,7 +96,7 @@ function selectFile(dialogText: string, fileFilter?: string, multipleFlag?: bool
   }
 }
 
-function readFile(args: any) {
+function readFile(args: any): string {
   var path = args['path']
   var fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
@@ -101,7 +107,7 @@ function readFile(args: any) {
   }
 }
 
-function writeFile(args: any) {
+function writeFile(args: any): boolean {
   var path = args['path']
   var txt = args['content']
 
@@ -124,7 +130,7 @@ function writeFile(args: any) {
 ///////////////////////////////////////////////////////////////////////////////
 // Layer Utils
 ///////////////////////////////////////////////////////////////////////////////
-function getLayerReference(index: number) {
+function getLayerReference(index: number): void {
   var idTrnf = app.charIDToTypeID('Trnf')
   var desc48 = new ActionDescriptor()
   var idnull = app.charIDToTypeID('null')
@@ -136,7 +142,7 @@ function getLayerReference(index: number) {
   desc48.putReference(idnull, ref36)
 }
 
-function getSelectedLayersIdx() {
+function getSelectedLayersIdx(): number[] {
   var selectedLayers = []
   var ref = new ActionReference()
   ref.putEnumerated(
@@ -148,7 +154,7 @@ function getSelectedLayersIdx() {
   if (desc.hasKey(app.stringIDToTypeID('targetLayers'))) {
     var descList = desc.getList(app.stringIDToTypeID('targetLayers'))
     var c = descList.count
-    var selectedLayers = []
+    selectedLayers = []
     for (var i = c - 1; i >= 0; i--) {
       try {
         app.activeDocument.backgroundLayer
@@ -158,7 +164,7 @@ function getSelectedLayersIdx() {
       }
     }
   } else {
-    var ref = new ActionReference()
+    ref = new ActionReference()
     ref.putProperty(app.charIDToTypeID('Prpr'), app.charIDToTypeID('ItmI'))
     ref.putEnumerated(
       app.charIDToTypeID('Lyr '),

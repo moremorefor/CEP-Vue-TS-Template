@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { IRootState } from './modules/root'
+import { RootState } from './modules/root'
 Vue.use(Vuex)
 
 export interface State {
-  root: IRootState
+  root: RootState
 }
 
 export const store = new Vuex.Store<State>({})

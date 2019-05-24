@@ -11,7 +11,7 @@ gulp.task 'copy', ->
       "#{paths.src.html}",
       "#{paths.src.css}",
       "#{paths.src.jslib}",
-      "#{paths.src.jsx}",
+      "#{paths.src.jsxlib}",
       "#{paths.src.csxs}",
       "#{paths.src.debug}",
       "#{paths.src.shellscript}",
