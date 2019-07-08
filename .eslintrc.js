@@ -24,7 +24,6 @@ module.exports = {
     'no-multi-spaces': 'off',
     'no-undef': 'warn',
     'no-console': 'warn',
-    '@typescript-eslint/indent': ['warn', 2],
     'prettier/prettier': [
       'error',
       {
