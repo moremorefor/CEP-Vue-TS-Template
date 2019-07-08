@@ -1,3 +1,6 @@
+os = require 'os'
+setupConfig = require '../setup/config.json'
+
 srcDir = 'src'
 destDir = 'public'
 
@@ -40,9 +43,9 @@ path =
     application: srcDir + '/*.app/**/*'
   deploy:
     src    : destDir + '/**/*'
+    dest   : os.homedir() + '/Library/Application Support/Adobe/CEP/extensions/' + setupConfig.bundleId
     debug  : destDir + '/.debug'
-    nodemodules_vue : './node_modules/vue/**/*'
-    nodemodules_vuex : './node_modules/vuex/**/*'
+    nodemodules_extendscriptShim : './node_modules/extendscript-es5-shim/**/*'
 
 module.exports =
   path: path

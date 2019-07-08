@@ -46,8 +46,8 @@ async function init(): Promise<any> {
     null
   )
 
-  jsxInterface.registerInclude('/js/libs/json2.js')
-  jsxInterface.registerInclude('/js/libs/polyfill.js')
+  jsxInterface.registerInclude('/node_modules/extendscript-es5-shim/index.js')
+  jsxInterface.registerInclude('/jsx/libs/json2.js')
   jsxInterface.registerInclude('/jsx/hostscript.jsx')
 
   // Config

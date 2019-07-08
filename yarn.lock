@@ -2751,6 +2751,10 @@ extend@^3.0.0, extend@~3.0.0, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
 
+extendscript-es5-shim@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/extendscript-es5-shim/-/extendscript-es5-shim-0.2.0.tgz#c02eb0323d3532264ff6b6c3b39580a797061236"
+
 external-editor@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-3.0.3.tgz#5866db29a97826dbe4bf3afd24070ead9ea43a27"

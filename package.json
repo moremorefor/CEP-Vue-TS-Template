@@ -9,6 +9,7 @@
     "start": "yarn setup && gulp"
   },
   "dependencies": {
+    "extendscript-es5-shim": "^0.2.0",
     "fs-extra": "^7.0.1",
     "vue": "^2.5.13",
     "vue-property-decorator": "^8.1.0",
