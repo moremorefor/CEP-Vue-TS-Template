@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ExtensionManifest Version="6.0" ExtensionBundleId="{{bundleId}}" ExtensionBundleVersion="0.0.1"
+<ExtensionManifest Version="6.0" ExtensionBundleId="{{bundleId}}" ExtensionBundleVersion="{{version}}"
     ExtensionBundleName="{{name}}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="{{bundleId}}" Version="0.0.1" />
+    <Extension Id="{{bundleId}}" Version="{{version}}" />
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const config = require('./config.json')
 console.log(config)
@@ -14,6 +13,7 @@ const manifestData = fs.readFileSync(
   'utf8'
 )
 var manifestResult = manifestData.replace(/{{name}}/g, config.name)
+manifestResult = manifestResult.replace(/{{version}}/g, config.version)
 manifestResult = manifestResult.replace(/{{bundleId}}/g, config.bundleId)
 fs.writeFileSync('./src/CSXS/manifest.xml', manifestResult)
 
