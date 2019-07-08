@@ -8,8 +8,8 @@ gulp.task 'default', ['del'], ->
     'typescript',
     'webpack',
     'copy'
-    'deploy',
     'copy_modules',
+    'deploy',
     # 'browser-sync',
     'watch'
   )
