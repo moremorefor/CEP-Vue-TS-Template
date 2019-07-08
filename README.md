@@ -35,8 +35,6 @@ CEP Extention template with Vue and TypeScript.
 
 2.  Edit `setup/config.json`.
 
-    - "userName" is home directory name
-
 3.  Build & Run
 
         $ yarn start
