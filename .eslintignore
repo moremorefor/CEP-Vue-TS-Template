@@ -1,0 +1,2 @@
+node_modules/
+src/jsx/@types/**/*.d.ts
