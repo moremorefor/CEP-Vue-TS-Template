@@ -19,7 +19,7 @@ declare var NaN: number
  * The application object
  */
 declare var app: Application
-declare interface Application {}
+declare interface Application { }
 
 /**
  * Displays an alert box
@@ -149,3 +149,5 @@ declare function unescape(stringExpression: string): string
  * @param what The object to uneval.
  */
 declare function uneval(what: any): string
+
+declare function localize(localization_obj: any, ...arguments: any[]): string
