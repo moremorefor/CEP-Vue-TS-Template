@@ -1,5 +1,6 @@
 import cepUtils from './cepUtils'
 import { CSInterface } from 'csinterface-ts'
+import * as fs from 'fs'
 
 export default class JSXInterface {
   private static _instance: JSXInterface
@@ -39,9 +40,11 @@ export default class JSXInterface {
     })
   }
 
-  private _sendJSX(f: string, params: object): Promise<void | object> {
+  private _sendJSX(f: string, params?: object): Promise<void | object> {
     const self = this
-    const paramsString = JSON.stringify(params)
+    let paramsObj = params
+    if (!paramsObj) paramsObj = {}
+    const paramsString = JSON.stringify(paramsObj)
 
     return new Promise(function(resolve, reject): void {
       self
@@ -56,7 +59,7 @@ export default class JSXInterface {
     })
   }
 
-  public evaluateJSX(f: string, params: object): Promise<void | object> {
+  public evaluateJSX(f: string, params?: object): Promise<void | object> {
     return this._sendJSX(f, params)
   }
 
@@ -67,10 +70,25 @@ export default class JSXInterface {
 
   public registerInclude(filepath: string): void {
     const filePath = cepUtils.getRootPath() + filepath
+    if (!this.isExistFile(filePath)) {
+      console.error('registerInclude result: file not found.\n', filePath)
+      return
+    }
     console.log('registerInclude: ', filePath)
     this.csInterface.evalScript(
       '$.evalFile("' + filePath + '")',
-      (): void => {}
+      (result: any): void => {
+        console.log('registerInclude result: ', result, '\n', filePath)
+      }
     )
+  }
+
+  private isExistFile(filepath: string): boolean {
+    try {
+      fs.statSync(filepath)
+      return true
+    } catch (err) {
+      return false
+    }
   }
 }
