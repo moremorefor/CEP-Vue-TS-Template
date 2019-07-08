@@ -24,10 +24,10 @@ gulp.task 'copy_modules', ->
   ], { base: "./node_modules" }
   .pipe gulp.dest( "#{paths.dest.dir}/node_modules" )
 
-gulp.task 'copyWatch', ['copy'], ->
+gulp.task 'copyWatch', gulp.series 'copy', ->
   gulp.start 'deploy'
 
-gulp.task 'deploy', ["del_deploy"], ->
+gulp.task 'deploy', gulp.series "del_deploy", ->
   gulp
     .src [
       "#{paths.deploy.src}",

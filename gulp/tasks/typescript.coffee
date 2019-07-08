@@ -13,5 +13,5 @@ gulp.task "typescript", () ->
         .pipe(rename({extname: '.jsx'}))
         .pipe(gulp.dest("#{paths.dest.jsx}"))
 
-gulp.task 'typescriptWatch', ['typescript'], ->
+gulp.task 'typescriptWatch', gulp.series 'typescript', ->
     gulp.start 'deploy'

@@ -3,9 +3,9 @@ config = require '../config'
 paths  = config.path
 
 gulp.task 'watch', ->
-  gulp.watch ["#{paths.watch.sass}", "#{paths.watch.scss}"], ['sassWatch']
-  gulp.watch ["#{paths.watch.js}", "#{paths.watch.ts}", "#{paths.watch.vue}"], ['webpackWatch']
-  gulp.watch ["#{paths.watch.jsx}"], ['typescriptWatch']
+  gulp.watch ["#{paths.watch.sass}", "#{paths.watch.scss}"], gulp.task('sassWatch')
+  gulp.watch ["#{paths.watch.js}", "#{paths.watch.ts}", "#{paths.watch.vue}"], gulp.task('webpackWatch')
+  gulp.watch ["#{paths.watch.jsx}"], gulp.task('typescriptWatch')
   gulp.watch [
     "#{paths.watch.html}",
     "#{paths.watch.jsxlib}",
@@ -14,4 +14,4 @@ gulp.task 'watch', ->
     "#{paths.watch.gif}",
     "#{paths.watch.shellscript}",
     "#{paths.watch.application}"
-  ], ['copyWatch']
+  ], gulp.task('copyWatch')

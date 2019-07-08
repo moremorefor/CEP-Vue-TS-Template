@@ -12,5 +12,5 @@ gulp.task "webpack", () ->
     )
     .pipe(gulp.dest("#{paths.dest.js}"))
 
-gulp.task 'webpackWatch', ['webpack'], ->
+gulp.task 'webpackWatch', gulp.series 'webpack', ->
   gulp.start 'deploy'
