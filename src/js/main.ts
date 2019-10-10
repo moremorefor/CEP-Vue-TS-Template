@@ -5,6 +5,7 @@ import Vue from 'vue'
 import { CSInterface, SystemPath } from 'csinterface-ts'
 import * as fs from 'fs'
 import { store } from './store'
+import cepUtils from './libs/cepUtils'
 import configManager from './libs/configManager'
 import JSXInterface from './libs/jsxInterface'
 import ThemeManager from './libs/themeManager'
@@ -46,9 +47,14 @@ async function init(): Promise<any> {
     null
   )
 
+  // Include jsx
   jsxInterface.registerInclude('/node_modules/extendscript-es5-shim/index.js')
   jsxInterface.registerInclude('/jsx/libs/json2.js')
   jsxInterface.registerInclude('/jsx/hostscript.jsx')
+  if (cepUtils.getApplicationName() == 'Photoshop')
+    jsxInterface.registerInclude('/jsx/Photoshop.jsx')
+  if (cepUtils.getApplicationName() == 'Illustrator')
+    jsxInterface.registerInclude('/jsx/Illustrator.jsx')
 
   // Config
   const config = await configManager.load()
@@ -66,23 +72,17 @@ async function init(): Promise<any> {
     store
   }).$mount('#app')
 
-  $('#btn_reload').click(
-    (): void => {
-      window.location.reload()
-    }
-  )
+  $('#btn_reload').click((): void => {
+    window.location.reload()
+  })
 
-  $('#btn_close').click(
-    (): void => {
-      csInterface.closeExtension()
-    }
-  )
+  $('#btn_close').click((): void => {
+    csInterface.closeExtension()
+  })
 
-  $('#btn_hello').click(
-    (): void => {
-      jsxInterface.evaluateJSX('jsxAlert', { content: 'hello' })
-    }
-  )
+  $('#btn_hello').click((): void => {
+    jsxInterface.evaluateJSX('jsxAlert', { content: 'hello' })
+  })
 }
 
 isNodeJSEnabled()

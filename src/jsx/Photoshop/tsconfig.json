@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es3",
+    "module": "none",
+    "noLib": true,
+    "typeRoots": [
+      "src/jsx/@types/libs/**/*",
+      "src/jsx/@types/shared/**/*",
+      "src/jsx/@types/Photoshop/**/*"
+    ]
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "./**/*.ts",
+    "./@types/libs/**/*",
+    "./@types/shared/**/*",
+    "./@types/Photoshop/**/*"
+  ]
+}

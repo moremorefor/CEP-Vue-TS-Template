@@ -11,9 +11,6 @@ config       = require '../config'
 paths        = config.path
 
 gulp.task 'sass', ->
-  sassOptions =
-    style      : 'nested'
-    sourcemap  : true
   plugins = [
     autoprefixer(),
     cssnano({ preset: 'default' }),
@@ -27,5 +24,7 @@ gulp.task 'sass', ->
    .pipe filter('**/*.css')
    .pipe browserSync.reload({stream:true})
 
-gulp.task 'sassWatch', gulp.series 'sass', ->
-  gulp.start 'deploy'
+gulp.task 'sassWatch', gulp.series(
+  'sass',
+  'deploy'
+)

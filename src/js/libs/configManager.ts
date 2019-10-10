@@ -10,11 +10,11 @@ class ConfigManager {
   public constructor() {
     console.log('cepUtils.getRootPath(): ', cepUtils.getRootPath())
     console.log('cepUtils.getDataPath(): ', cepUtils.getDataPath())
-    console.log('cepUtils.getAppName(): ', cepUtils.getAppName())
+    console.log('cepUtils.getAppName(): ', cepUtils.getApplicationName())
     this._dataPath = cepUtils.getDataPath()
     this.createDataDirectory(this._dataPath)
     this._filePath =
-      cepUtils.getDataPath() + '/' + cepUtils.getAppName() + '.json'
+      cepUtils.getDataPath() + '/' + cepUtils.getApplicationName() + '.json'
   }
 
   public createDataDirectory(dataPath: string): void {

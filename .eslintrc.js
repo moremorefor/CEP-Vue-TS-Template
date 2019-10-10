@@ -35,5 +35,17 @@ module.exports = {
         arrowParens: 'always'
       }
     ]
-  }
+  },
+  overrides: [
+    {
+      files: ['src/jsx/**/*.ts'],
+      parser: 'vue-eslint-parser',
+      rules: {
+        'no-undef': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/camelcase': 'off'
+      }
+    }
+  ]
 }

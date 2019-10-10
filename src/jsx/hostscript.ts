@@ -1,29 +1,6 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/// <reference types="./@types/Photoshop/2015.5"/>
-app.preferences.rulerUnits = Units.PIXELS
-
 function jsxAlert(args: any): void {
   var content = args['content']
   alert(content)
-}
-
-function historyCall(args: any): void {
-  var func = args['func']
-  var params = args['params']
-  try {
-    app.activeDocument
-  } catch (e) {
-    alert(
-      'Active document not found.\nsuspendHistory is active document required.'
-    )
-  }
-
-  if (params) {
-    app.activeDocument.suspendHistory(func, func + '(params)')
-  } else {
-    app.activeDocument.suspendHistory(func, func + '()')
-  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -125,77 +102,4 @@ function writeFile(args: any): boolean {
     alert("Error: can't create file.")
   }
   return false
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Layer Utils
-///////////////////////////////////////////////////////////////////////////////
-function getLayerReference(index: number): void {
-  var idTrnf = app.charIDToTypeID('Trnf')
-  var desc48 = new ActionDescriptor()
-  var idnull = app.charIDToTypeID('null')
-  var ref36 = new ActionReference()
-  var idLyr = app.charIDToTypeID('Lyr ')
-  var idOrdn = app.charIDToTypeID('Ordn')
-  var idTrgt = app.charIDToTypeID('Trgt')
-  ref36.putEnumerated(idLyr, idOrdn, idTrgt)
-  desc48.putReference(idnull, ref36)
-}
-
-function getSelectedLayersIdx(): number[] {
-  var selectedLayers = []
-  var ref = new ActionReference()
-  ref.putEnumerated(
-    app.charIDToTypeID('Dcmn'),
-    app.charIDToTypeID('Ordn'),
-    app.charIDToTypeID('Trgt')
-  )
-  var desc = app.executeActionGet(ref)
-  if (desc.hasKey(app.stringIDToTypeID('targetLayers'))) {
-    var descList = desc.getList(app.stringIDToTypeID('targetLayers'))
-    var c = descList.count
-    selectedLayers = []
-    for (var i = c - 1; i >= 0; i--) {
-      try {
-        app.activeDocument.backgroundLayer
-        selectedLayers.push(descList.getReference(i).getIndex())
-      } catch (e) {
-        selectedLayers.push(descList.getReference(i).getIndex() + 1)
-      }
-    }
-  } else {
-    ref = new ActionReference()
-    ref.putProperty(app.charIDToTypeID('Prpr'), app.charIDToTypeID('ItmI'))
-    ref.putEnumerated(
-      app.charIDToTypeID('Lyr '),
-      app.charIDToTypeID('Ordn'),
-      app.charIDToTypeID('Trgt')
-    )
-    try {
-      app.activeDocument.backgroundLayer
-      selectedLayers.push(
-        app.executeActionGet(ref).getInteger(app.charIDToTypeID('ItmI')) - 1
-      )
-    } catch (e) {
-      selectedLayers.push(
-        app.executeActionGet(ref).getInteger(app.charIDToTypeID('ItmI'))
-      )
-    }
-    var vis = app.activeDocument.activeLayer.visible
-    if (vis == true) app.activeDocument.activeLayer.visible = false
-    var desc9 = new ActionDescriptor()
-    var list9 = new ActionList()
-    var ref9 = new ActionReference()
-    ref9.putEnumerated(
-      app.charIDToTypeID('Lyr '),
-      app.charIDToTypeID('Ordn'),
-      app.charIDToTypeID('Trgt')
-    )
-    list9.putReference(ref9)
-    desc9.putList(app.charIDToTypeID('null'), list9)
-    app.executeAction(app.charIDToTypeID('Shw '), desc9, DialogModes.NO)
-    if (app.activeDocument.activeLayer.visible == false) selectedLayers.shift()
-    app.activeDocument.activeLayer.visible = vis
-  }
-  return selectedLayers
 }

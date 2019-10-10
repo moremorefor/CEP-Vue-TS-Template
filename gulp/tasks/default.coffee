@@ -1,6 +1,5 @@
 gulp        = require 'gulp'
 browserSync = require 'browser-sync'
-runSequence = require 'run-sequence'
 
 gulp.task 'default', gulp.series(
   'del',

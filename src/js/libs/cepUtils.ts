@@ -7,11 +7,11 @@ class CEPUtils {
 
   public constructor() {
     this._csInterface = new CSInterface()
-    this._appName = this.getApplicationName()
+    this._appName = this.detectApplicationName()
     this._rootPath = this._csInterface.getSystemPath(SystemPath.EXTENSION)
   }
 
-  public getAppName(): string {
+  public getApplicationName(): string {
     return this._appName
   }
 
@@ -35,7 +35,7 @@ class CEPUtils {
     return savePath + '/Adobe/CEP/extensions/' + extensionName
   }
 
-  public getApplicationName(): string {
+  private detectApplicationName(): string {
     const appID = this._csInterface.getApplicationID()
     console.log('Application: ', appID)
     switch (appID) {

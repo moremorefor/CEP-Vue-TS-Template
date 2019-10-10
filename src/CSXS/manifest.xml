@@ -7,8 +7,11 @@
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>
+            <!-- CC 2015 Version (CEP 6) -->
             <Host Name="PHSP" Version="16.0" />
             <Host Name="PHXS" Version="16.0" />
+            <!-- CC 2015 Dot Version (CEP 7) -->
+            <Host Name="ILST" Version="20.0" />
     </HostList>
     <LocaleList>
       <Locale Code="All" />
