@@ -25,9 +25,9 @@
       </div>
     </div>
 
-    <div class="space"></div>
+    <div class="space" />
 
-    <div class="line"></div>
+    <div class="line" />
   </div>
 </template>
 
@@ -40,7 +40,7 @@ const jsxInterface = JSXInterface.getInstance()
 
 @Component
 export default class Buttons extends Vue {
-  applicationName: string = ''
+  applicationName = ''
 
   created() {
     this.applicationName = cepUtils.getApplicationName()
@@ -48,7 +48,7 @@ export default class Buttons extends Vue {
 
   helloAlert() {
     jsxInterface.evaluateJSX('jsxAlert', {
-      content: 'Hello World'
+      content: 'Hello World',
     })
   }
 
@@ -56,14 +56,14 @@ export default class Buttons extends Vue {
     jsxInterface.evaluateJSX('historyCall', {
       func: 'jsxAlert',
       params: {
-        content: 'Hello World'
-      }
+        content: 'Hello World',
+      },
     })
   }
 
   createNewDocument() {
     jsxInterface.evaluateJSX('createNewDocument', {
-      content: 'Hello World'
+      content: 'Hello World',
     })
   }
 }

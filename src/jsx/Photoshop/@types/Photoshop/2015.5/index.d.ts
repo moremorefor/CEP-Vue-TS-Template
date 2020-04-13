@@ -1,5 +1,5 @@
-/// <reference path="../../shared/global.d.ts" />
-/// <reference path="../../shared/ScriptUI.d.ts" />
+/// <reference path="../../../../@types/shared/global.d.ts" />
+/// <reference path="../../../../@types/shared/ScriptUI.d.ts" />
 
 /**
  * Document formats that Photoshop can open.
@@ -163,7 +163,7 @@ declare enum OpenDocumentType {
   /**
    * Wireless Bitmap format (WBMP)
    */
-  WIRELESSBITMAP = 31
+  WIRELESSBITMAP = 31,
 }
 
 /**
@@ -288,7 +288,7 @@ declare enum SaveDocumentType {
   /**
    * Wireless Bitmap format (WBMP)
    */
-  WIRELESSBITMAP = 31
+  WIRELESSBITMAP = 31,
 }
 
 /**
@@ -308,7 +308,7 @@ declare enum DialogModes {
   /**
    * Show no dialogs.
    */
-  NO = 3
+  NO = 3,
 }
 
 /**
@@ -328,7 +328,7 @@ declare enum DocPositionStyle {
   /**
    * Print using user defined spacing.
    */
-  USERDEFINED = 3
+  USERDEFINED = 3,
 }
 
 /**
@@ -348,7 +348,7 @@ declare enum PrintColorHandling {
   /**
    * Print each channel separately without color conversions.
    */
-  SEPARATIONS = 3
+  SEPARATIONS = 3,
 }
 
 /**
@@ -393,7 +393,7 @@ declare enum DocumentMode {
   /**
    * RGB.
    */
-  RGB = 2
+  RGB = 2,
 }
 
 /**
@@ -435,7 +435,7 @@ declare enum ChangeMode {
   /**
    * RGB.
    */
-  RGB = 2
+  RGB = 2,
 }
 
 /**
@@ -455,7 +455,7 @@ declare enum ColorProfileType {
   /**
    * Color manages this document using the working color profile.
    */
-  WORKING = 2
+  WORKING = 2,
 }
 
 /**
@@ -475,7 +475,7 @@ declare enum DocumentFill {
   /**
    * White.
    */
-  WHITE = 1
+  WHITE = 1,
 }
 
 /**
@@ -525,7 +525,7 @@ declare enum Urgency {
   /**
    * Level 2 (second highest)
    */
-  TWO = 2
+  TWO = 2,
 }
 
 /**
@@ -540,7 +540,7 @@ declare enum Orientation {
   /**
    * Portrait.
    */
-  PORTRAIT = 2
+  PORTRAIT = 2,
 }
 
 /**
@@ -569,7 +569,7 @@ declare enum Intent {
    * Tries to produce vivid colors in an image at the expense of color accuracy.
    * Suitable for business graphics like graphs or charts, where bright saturated colors are more important than the exact relationship between colors.
    */
-  SATURATION = 2
+  SATURATION = 2,
 }
 
 /**
@@ -584,7 +584,7 @@ declare enum Direction {
   /**
    * Vertical.
    */
-  VERTICAL = 2
+  VERTICAL = 2,
 }
 
 /**
@@ -609,7 +609,7 @@ declare enum PurgeTarget {
   /**
    * Clears the undo cache.
    */
-  UNDOCACHES = 1
+  UNDOCACHES = 1,
 }
 
 /**
@@ -659,7 +659,7 @@ declare enum AnchorPosition {
   /**
    * The top right corner of the object.
    */
-  TOPRIGHT = 3
+  TOPRIGHT = 3,
 }
 
 /**
@@ -711,7 +711,7 @@ declare enum ResampleMethod {
   /**
    *
    */
-  PRESERVEDETAILS = 9
+  PRESERVEDETAILS = 9,
 }
 
 /**
@@ -726,7 +726,7 @@ declare enum OperatingSystem {
   /**
    * Windows operating system.
    */
-  WINDOWS = 2
+  WINDOWS = 2,
 }
 
 /**
@@ -751,7 +751,7 @@ declare enum ForcedColors {
   /**
    * Forces the 216 web-safe colors.
    */
-  WEB = 4
+  WEB = 4,
 }
 
 /**
@@ -821,7 +821,7 @@ declare enum PaletteType {
   /**
    * The Windows system's default 8-bit palette, whch is based on a uniform sampling of RGB colors.
    */
-  WINDOWSPALETTE = 3
+  WINDOWSPALETTE = 3,
 }
 
 /**
@@ -846,7 +846,7 @@ declare enum Dither {
   /**
    * Applies a halftone-like square pattern.
    */
-  PATTERN = 3
+  PATTERN = 3,
 }
 
 /**
@@ -881,7 +881,7 @@ declare enum Preview {
   /**
    * Does not use a preview.
    */
-  NONE = 1
+  NONE = 1,
 }
 
 /**
@@ -916,7 +916,7 @@ declare enum SaveEncoding {
   /**
    * Medium quality JPEG encoding (medium compression).
    */
-  JPEGMEDIUM = 4
+  JPEGMEDIUM = 4,
 }
 
 /**
@@ -936,7 +936,7 @@ declare enum FormatOptions {
   /**
    * Baseline (Standard). Recognized by most web browsers.
    */
-  STANDARDBASELINE = 1
+  STANDARDBASELINE = 1,
 }
 
 /**
@@ -1016,7 +1016,7 @@ declare enum PDFEncoding {
   /**
    * Zip compression with 4-bit image quality.
    */
-  PDFZIP4BIT = 3
+  PDFZIP4BIT = 3,
 }
 
 /**
@@ -1052,7 +1052,7 @@ declare enum PDFStandard {
   /**
    * PDF/X-4 standard, which requires all fonts to be embedded and the appropriate PDF bounding boxes to be specified, and for color allows either the use of color management and device-independent color (CIE L*a*b, ICC-based color spaces, CalRGB, and CalGray) or CMYK, spot colors, or both; can be opened in Acrobat 8.0 and Acrobat Reader 8.0 and later.
    */
-  PDFX42008 = 5
+  PDFX42008 = 5,
 }
 
 /**
@@ -1082,7 +1082,7 @@ declare enum PDFCompatibility {
   /**
    * PDF 1.7 (Acrobat 9 or higher)
    */
-  PDF17 = 5
+  PDF17 = 5,
 }
 
 /**
@@ -1107,7 +1107,7 @@ declare enum PDFResample {
   /**
    * Chooses a pixel in the center of the sample area and replaces the entire area with that pixel color; significantly reduces conversion time but results in images that are less smooth and continuous.
    */
-  PDFSUBSAMPLE = 2
+  PDFSUBSAMPLE = 2,
 }
 
 /**
@@ -1137,7 +1137,7 @@ declare enum PICTCompression {
   /**
    * No compression.
    */
-  NONE = 1
+  NONE = 1,
 }
 
 /**
@@ -1157,7 +1157,7 @@ declare enum Extension {
   /**
    * The extension is in uppercase letters.
    */
-  UPPERCASE = 3
+  UPPERCASE = 3,
 }
 
 /**
@@ -1182,7 +1182,7 @@ declare enum TIFFEncoding {
   /**
    * Zip compression, which is lossless and most effective for images that contain large areas of single color.
    */
-  TIFFZIP = 4
+  TIFFZIP = 4,
 }
 
 /**
@@ -1197,7 +1197,7 @@ declare enum LayerCompression {
   /**
    * Zip compression, which is lossless and most effective for images that contain large areas of single color.
    */
-  ZIP = 2
+  ZIP = 2,
 }
 
 /**
@@ -1212,7 +1212,7 @@ declare enum ByteOrder {
   /**
    * Mac OS.
    */
-  MACOS = 2
+  MACOS = 2,
 }
 
 /**
@@ -1232,7 +1232,7 @@ declare enum DCSType {
   /**
    * Does not create a composite file.
    */
-  NOCOMPOSITE = 1
+  NOCOMPOSITE = 1,
 }
 
 /**
@@ -1252,7 +1252,7 @@ declare enum TrimType {
   /**
    * Trims away transparency at the edges of the image, leaving the smallest image containing nontransparent pixels.
    */
-  TRANSPARENT = 0
+  TRANSPARENT = 0,
 }
 
 /**
@@ -1277,7 +1277,7 @@ declare enum ColorPicker {
   /**
    * The built-in Windows color picker.
    */
-  WINDOWS = 3
+  WINDOWS = 3,
 }
 
 /**
@@ -1297,7 +1297,7 @@ declare enum ResetTarget {
   /**
    * All targets.
    */
-  EVERYTHING = 3
+  EVERYTHING = 3,
 }
 
 /**
@@ -1317,7 +1317,7 @@ declare enum SaveBehavior {
   /**
    * Never save the item with the file.
    */
-  NEVERSAVE = 1
+  NEVERSAVE = 1,
 }
 
 /**
@@ -1338,7 +1338,7 @@ declare enum PaintingCursors {
   /**
    * Displays pointers as tool icons.
    */
-  STANDARD = 1
+  STANDARD = 1,
 }
 
 /**
@@ -1353,7 +1353,7 @@ declare enum OtherPaintingCursors {
   /**
    * Displays pointers as tool icons.
    */
-  STANDARDOTHER = 1
+  STANDARDOTHER = 1,
 }
 
 /**
@@ -1378,7 +1378,7 @@ declare enum GridSize {
   /**
    * Small grid squares.
    */
-  SMALL = 2
+  SMALL = 2,
 }
 
 /**
@@ -1418,7 +1418,7 @@ declare enum Units {
   /**
    * Points.
    */
-  POINTS = 5
+  POINTS = 5,
 }
 
 /**
@@ -1438,7 +1438,7 @@ declare enum TypeUnits {
   /**
    * Points.
    */
-  POINTS = 5
+  POINTS = 5,
 }
 
 /**
@@ -1453,7 +1453,7 @@ declare enum PointType {
   /**
    * 72.27 points per inch.
    */
-  TRADITIONAL = 2
+  TRADITIONAL = 2,
 }
 
 /**
@@ -1473,7 +1473,7 @@ declare enum GridLineStyle {
   /**
    * Solid.
    */
-  SOLID = 1
+  SOLID = 1,
 }
 
 /**
@@ -1488,7 +1488,7 @@ declare enum GuideLineStyle {
   /**
    * Solid.
    */
-  SOLID = 1
+  SOLID = 1,
 }
 
 /**
@@ -1634,7 +1634,7 @@ declare enum BlendMode {
   /**
    * Burns or dodges the colors by increasing or decreasing the contrast, depending on the blend color. If the blend color (light source) is lighter than 50% gray, the image is lightened by decreasing the contrast. If the blend color is darker than 50% gray, the image is darkened by increasing the contrast.
    */
-  VIVIDLIGHT = 15
+  VIVIDLIGHT = 15,
 }
 
 /**
@@ -1784,7 +1784,7 @@ declare enum ColorBlendMode {
   /**
    * Burns or dodges the colors by increasing or decreasing the contrast, depending on the blend color. If the blend color (light source) is lighter than 50% gray, the image is lightened by decreasing the contrast. If the blend color is darker than 50% gray, the image is darkened by increasing the contrast.
    */
-  VIVIDLIGHT = 15
+  VIVIDLIGHT = 15,
 }
 
 /**
@@ -1819,7 +1819,7 @@ declare enum RasterizeType {
   /**
    * Rasterizes the type on a type layer. Doesn't rasterize any other vector data on the layer.
    */
-  TEXTCONTENTS = 1
+  TEXTCONTENTS = 1,
 }
 
 /**
@@ -1859,7 +1859,7 @@ declare enum Justification {
   /**
    * Justifies all lines except the last, which is right-aligned.
    */
-  RIGHTJUSTIFIED = 6
+  RIGHTJUSTIFIED = 6,
 }
 
 /**
@@ -1889,7 +1889,7 @@ declare enum AntiAlias {
   /**
    * Makes type appear heavier.
    */
-  STRONG = 4
+  STRONG = 4,
 }
 
 /**
@@ -1909,7 +1909,7 @@ declare enum Case {
   /**
    * Uses small caps for lowercase letters.
    */
-  SMALLCAPS = 3
+  SMALLCAPS = 3,
 }
 
 /**
@@ -1999,7 +1999,7 @@ declare enum Language {
   /**
    * Swiss German.
    */
-  SWISSGERMAN = 8
+  SWISSGERMAN = 8,
 }
 
 /**
@@ -2014,7 +2014,7 @@ declare enum TextType {
   /**
    * Text that does not wrap.
    */
-  POINTTEXT = 1
+  POINTTEXT = 1,
 }
 
 /**
@@ -2099,7 +2099,7 @@ declare enum WarpStyle {
   /**
    * Text is warped in the shape of a wave.
    */
-  WAVE = 10
+  WAVE = 10,
 }
 
 /**
@@ -2116,7 +2116,7 @@ declare enum TextComposer {
    * Offers a traditional approach to composing type one line at a time. Useful if you prefer to have manual control over how lines break.
    * Uses the following principles when considering a breakpoint: Compressed or expanded word spacing is preferable to hyphenation; Hyphenation is preferable to compressed or expanded letter spacing; If spacing must be adjusted, compression is better than expansion.
    */
-  ADOBESINGLELINE = 1
+  ADOBESINGLELINE = 1,
 }
 
 /**
@@ -2136,7 +2136,7 @@ declare enum AutoKernType {
   /**
    * Adjusts the spacing between adjacent characters based on their shapes.
    */
-  OPTICAL = 3
+  OPTICAL = 3,
 }
 
 /**
@@ -2156,7 +2156,7 @@ declare enum StrikeThruType {
   /**
    * No strikethrough.
    */
-  STRIKEOFF = 1
+  STRIKEOFF = 1,
 }
 
 /**
@@ -2176,7 +2176,7 @@ declare enum UnderlineType {
   /**
    * (For vertical type) The underline is to the right of the text.
    */
-  UNDERLINERIGHT = 2
+  UNDERLINERIGHT = 2,
 }
 
 /**
@@ -2201,7 +2201,7 @@ declare enum SelectionType {
   /**
    * Replace the selected area.
    */
-  REPLACE = 1
+  REPLACE = 1,
 }
 
 /**
@@ -2216,7 +2216,7 @@ declare enum ExportType {
   /**
    * Uses the save for web export options.
    */
-  SAVEFORWEB = 2
+  SAVEFORWEB = 2,
 }
 
 /**
@@ -2236,7 +2236,7 @@ declare enum IllustratorPathType {
   /**
    * Exports the specified path. To specify the path, see the path name property of the illustrator export options object.
    */
-  NAMEDPATH = 3
+  NAMEDPATH = 3,
 }
 
 /**
@@ -2261,7 +2261,7 @@ declare enum ChannelType {
   /**
    * The alpha channel to store a spot color.
    */
-  SPOTCOLOR = 4
+  SPOTCOLOR = 4,
 }
 
 /**
@@ -2276,7 +2276,7 @@ declare enum RadialBlurMethod {
   /**
    * Blurs along radial lines, as if zooming into or out of the image.
    */
-  ZOOM = 2
+  ZOOM = 2,
 }
 
 /**
@@ -2296,7 +2296,7 @@ declare enum RadialBlurQuality {
   /**
    * Produces good results.
    */
-  GOOD = 2
+  GOOD = 2,
 }
 
 /**
@@ -2316,7 +2316,7 @@ declare enum SmartBlurQuality {
   /**
    * Medium quality.
    */
-  MEDIUM = 2
+  MEDIUM = 2,
 }
 
 /**
@@ -2338,7 +2338,7 @@ declare enum SmartBlurMode {
    * Blur is applied only to edges of color transitions.
    * Where significant contrast occurs, applies white edges.
    */
-  OVERLAYEDGE = 3
+  OVERLAYEDGE = 3,
 }
 
 /**
@@ -2368,7 +2368,7 @@ declare enum TextureType {
   /**
    * The image appears as if viewed through an array of tiny lenses.
    */
-  TINYLENS = 4
+  TINYLENS = 4,
 }
 
 /**
@@ -2383,7 +2383,7 @@ declare enum PolarConversionType {
   /**
    * The selection is converted from its rectangular to polar coordinates.
    */
-  RECTANGULARTOPOLAR = 1
+  RECTANGULARTOPOLAR = 1,
 }
 
 /**
@@ -2403,7 +2403,7 @@ declare enum RippleSize {
   /**
    * Small.
    */
-  SMALL = 1
+  SMALL = 1,
 }
 
 /**
@@ -2418,7 +2418,7 @@ declare enum UndefinedAreas {
   /**
    * Fills the undefined space with content from the opposite edge of the image.
    */
-  WRAPAROUND = 1
+  WRAPAROUND = 1,
 }
 
 /**
@@ -2438,7 +2438,7 @@ declare enum OffsetUndefinedAreas {
   /**
    * Fills the undefined space with content from the opposite edge of the image.
    */
-  WRAPAROUND = 2
+  WRAPAROUND = 2,
 }
 
 /**
@@ -2458,7 +2458,7 @@ declare enum SpherizeMode {
   /**
    * Distorts the image as if it is wrapped around a vertical cylinder.
    */
-  VERTICAL = 3
+  VERTICAL = 3,
 }
 
 /**
@@ -2473,7 +2473,7 @@ declare enum DisplacementMapType {
   /**
    * The selection is filled by repeating the map in a pattern.
    */
-  TILE = 2
+  TILE = 2,
 }
 
 /**
@@ -2493,7 +2493,7 @@ declare enum WaveType {
   /**
    * Triangular.
    */
-  TRIANGULAR = 2
+  TRIANGULAR = 2,
 }
 
 /**
@@ -2513,7 +2513,7 @@ declare enum ZigZagType {
   /**
    * Pixels are displaced to the upper left or lower right.
    */
-  PONDRIPPLES = 3
+  PONDRIPPLES = 3,
 }
 
 /**
@@ -2528,7 +2528,7 @@ declare enum NoiseDistribution {
   /**
    * Distributes color values of noise using random numbers between 0 and plus or minus the specified value, creating a subtle effect.
    */
-  UNIFORM = 1
+  UNIFORM = 1,
 }
 
 /**
@@ -2553,7 +2553,7 @@ declare enum LensType {
   /**
    * 50-300mm Zoom.
    */
-  ZOOMLENS = 1
+  ZOOMLENS = 1,
 }
 
 /**
@@ -2568,7 +2568,7 @@ declare enum EliminateFields {
   /**
    * Eliminate odd interlaced lines in a video image.
    */
-  ODDFIELDS = 1
+  ODDFIELDS = 1,
 }
 
 /**
@@ -2583,7 +2583,7 @@ declare enum CreateFields {
   /**
    * Assigns color values to any new pixels that Photoshop creates based on the color values of existing pixels in the image.
    */
-  INTERPOLATION = 2
+  INTERPOLATION = 2,
 }
 
 /**
@@ -2618,7 +2618,7 @@ declare enum PhotoCDSize {
   /**
    * 128x192 image.
    */
-  SMALL = 2
+  SMALL = 2,
 }
 
 /**
@@ -2643,7 +2643,7 @@ declare enum BitsPerChannelType {
   /**
    * 32 bits per channel.
    */
-  THIRTYTWO = 32
+  THIRTYTWO = 32,
 }
 
 /**
@@ -2673,7 +2673,7 @@ declare enum PICTBitsPerPixels {
   /**
    * 2 bits per pixel.
    */
-  TWO = 2
+  TWO = 2,
 }
 
 /**
@@ -2693,7 +2693,7 @@ declare enum TargaBitsPerPixels {
   /**
    * 24 bits per pixel.
    */
-  TWENTYFOUR = 24
+  TWENTYFOUR = 24,
 }
 
 /**
@@ -2763,7 +2763,7 @@ declare enum DescValueType {
   /**
    * Unit value of type double.
    */
-  UNITDOUBLE = 3
+  UNITDOUBLE = 3,
 }
 
 /**
@@ -2803,7 +2803,7 @@ declare enum ReferenceFormType {
   /**
    * Property.
    */
-  PROPERTY = 6
+  PROPERTY = 6,
 }
 
 /**
@@ -2878,7 +2878,7 @@ declare enum BMPDepthType {
   /**
    * 24 bits depth.
    */
-  TWENTYFOUR = 24
+  TWENTYFOUR = 24,
 }
 
 /**
@@ -2898,7 +2898,7 @@ declare enum CopyrightedType {
   /**
    * The copyright status is not indicated.
    */
-  UNMARKED = 3
+  UNMARKED = 3,
 }
 
 /**
@@ -2929,7 +2929,7 @@ declare enum BitmapConversionType {
   /**
    * Applies a halftone-like square pattern to determine the value of pixels.
    */
-  PATTERNDITHER = 2
+  PATTERNDITHER = 2,
 }
 
 /**
@@ -2964,7 +2964,7 @@ declare enum BitmapHalfToneType {
   /**
    * Square.
    */
-  SQUARE = 5
+  SQUARE = 5,
 }
 
 /**
@@ -3004,7 +3004,7 @@ declare enum MatteType {
   /**
    * White.
    */
-  WHITE = 4
+  WHITE = 4,
 }
 
 /**
@@ -3019,7 +3019,7 @@ declare enum AdjustmentReference {
   /**
    * A percentage of the existing color amount.
    */
-  RELATIVE = 1
+  RELATIVE = 1,
 }
 
 /**
@@ -3044,7 +3044,7 @@ declare enum OpenDocumentMode {
   /**
    * RGB.
    */
-  RGB = 2
+  RGB = 2,
 }
 
 /**
@@ -3074,7 +3074,7 @@ declare enum NewDocumentMode {
   /**
    * RGB.
    */
-  RGB = 2
+  RGB = 2,
 }
 
 /**
@@ -3099,7 +3099,7 @@ declare enum PhotoCDColorSpace {
   /**
    * RGB with 8 bits per channel.
    */
-  RGB8 = 1
+  RGB8 = 1,
 }
 
 /**
@@ -3119,7 +3119,7 @@ declare enum StrokeLocation {
   /**
    * The border is placed outside the selection or layer boundaries.
    */
-  OUTSIDE = 3
+  OUTSIDE = 3,
 }
 
 /**
@@ -3154,7 +3154,7 @@ declare enum ColorModel {
   /**
    * RGB.
    */
-  RGB = 2
+  RGB = 2,
 }
 
 /**
@@ -3174,7 +3174,7 @@ declare enum JavaScriptExecutionMode {
   /**
    * Show the JavaScript debugger if a runtime error occurs.
    */
-  ONRUNTIMEERROR = 2
+  ONRUNTIMEERROR = 2,
 }
 
 /**
@@ -3189,7 +3189,7 @@ declare enum SourceSpaceType {
   /**
    * The proof color space.
    */
-  PROOF = 2
+  PROOF = 2,
 }
 
 /**
@@ -3314,7 +3314,7 @@ declare enum LayerKind {
   /**
    * Video layer.
    */
-  VIDEO = 21
+  VIDEO = 21,
 }
 
 /**
@@ -3409,7 +3409,7 @@ declare enum TransitionType {
   /**
    * The new image rolls in from the bottom of the screen.
    */
-  WIPEUP = 18
+  WIPEUP = 18,
 }
 
 /**
@@ -3434,7 +3434,7 @@ declare enum GalleryFontType {
   /**
    * Times New Roman font.
    */
-  TIMESNEWROMAN = 4
+  TIMESNEWROMAN = 4,
 }
 
 /**
@@ -3454,7 +3454,7 @@ declare enum GalleryConstrainType {
   /**
    * Constrain width.
    */
-  CONSTRAINWIDTH = 1
+  CONSTRAINWIDTH = 1,
 }
 
 /**
@@ -3479,7 +3479,7 @@ declare enum GalleryThumbSizeType {
   /**
    * Small thumbnail.
    */
-  SMALL = 1
+  SMALL = 1,
 }
 
 /**
@@ -3519,7 +3519,7 @@ declare enum GallerySecurityType {
   /**
    * Title security.
    */
-  TITLE = 7
+  TITLE = 7,
 }
 
 /**
@@ -3559,7 +3559,7 @@ declare enum PicturePackageTextType {
   /**
    * The text is user defined.
    */
-  USER = 2
+  USER = 2,
 }
 
 /**
@@ -3579,7 +3579,7 @@ declare enum GallerySecurityTextColorType {
   /**
    * White text.
    */
-  WHITE = 2
+  WHITE = 2,
 }
 
 /**
@@ -3609,7 +3609,7 @@ declare enum GallerySecurityTextPositionType {
   /**
    * Text is in the upper right corner of each image.
    */
-  UPPERRIGHT = 4
+  UPPERRIGHT = 4,
 }
 
 /**
@@ -3639,7 +3639,7 @@ declare enum GallerySecurityTextRotateType {
   /**
    * No rotate.
    */
-  ZERO = 1
+  ZERO = 1,
 }
 
 /**
@@ -3659,7 +3659,7 @@ declare enum QueryStateType {
   /**
    * Never ask about maximize compatibility.
    */
-  NEVER = 3
+  NEVER = 3,
 }
 
 /**
@@ -3679,7 +3679,7 @@ declare enum SaveLogItemsType {
   /**
    * Save history log in file metadata.
    */
-  METADATA = 1
+  METADATA = 1,
 }
 
 /**
@@ -3699,7 +3699,7 @@ declare enum EditLogItemsType {
   /**
    * Save a history for only for the session.
    */
-  SESSIONONLY = 1
+  SESSIONONLY = 1,
 }
 
 /**
@@ -3729,7 +3729,7 @@ declare enum PathKind {
   /**
    * Workpath.
    */
-  WORKPATH = 3
+  WORKPATH = 3,
 }
 
 /**
@@ -3754,7 +3754,7 @@ declare enum ShapeOperation {
   /**
    * Replaces the shape in the destination image with the loaded selection.
    */
-  SHAPEXOR = 2
+  SHAPEXOR = 2,
 }
 
 /**
@@ -3769,7 +3769,7 @@ declare enum PointKind {
   /**
    * The point can be a curve.
    */
-  SMOOTHPOINT = 1
+  SMOOTHPOINT = 1,
 }
 
 /**
@@ -3854,7 +3854,7 @@ declare enum ToolType {
   /**
    * Sponge.
    */
-  SPONGE = 15
+  SPONGE = 15,
 }
 
 /**
@@ -3874,7 +3874,7 @@ declare enum BatchDestinationType {
   /**
    * Saves changes and closes all files.
    */
-  SAVEANDCLOSE = 2
+  SAVEANDCLOSE = 2,
 }
 
 /**
@@ -3969,7 +3969,7 @@ declare enum FileNamingType {
   /**
    * Uses the date formatted as yyyymmdd.
    */
-  YYYYMMDD = 12
+  YYYYMMDD = 12,
 }
 
 /**
@@ -3994,7 +3994,7 @@ declare enum DepthMapSource {
   /**
    * Uses the transparency channel for the depth map.
    */
-  TRANSPARENCYCHANNEL = 2
+  TRANSPARENCYCHANNEL = 2,
 }
 
 /**
@@ -4029,7 +4029,7 @@ declare enum Geometry {
   /**
    * Triangle.
    */
-  TRIANGLE = 0
+  TRIANGLE = 0,
 }
 
 /**
@@ -4079,7 +4079,7 @@ declare enum ColorReductionType {
   /**
    * Uses a set palette of colors.
    */
-  WINDOWS = 8
+  WINDOWS = 8,
 }
 
 /**
@@ -4099,7 +4099,7 @@ declare enum CameraRAWSettingsType {
   /**
    * Use the settings of the selected image.
    */
-  SELECTEDIMAGE = 1
+  SELECTEDIMAGE = 1,
 }
 
 /**
@@ -4149,7 +4149,7 @@ declare enum WhiteBalanceType {
   /**
    * Use the settings as shot with tungsten lighting.
    */
-  TUNGSTEN = 5
+  TUNGSTEN = 5,
 }
 
 /**
@@ -4174,7 +4174,7 @@ declare enum ColorSpaceType {
   /**
    * Use the sRGB color space.
    */
-  SRGB = 3
+  SRGB = 3,
 }
 
 /**
@@ -4209,7 +4209,7 @@ declare enum CameraRAWSize {
   /**
    * 2048 x 1365 image.
    */
-  SMALL = 1
+  SMALL = 1,
 }
 
 /**
@@ -4224,7 +4224,7 @@ declare enum MagnificationType {
   /**
    * Fits the image to the page.
    */
-  FITPAGE = 1
+  FITPAGE = 1,
 }
 
 /**
@@ -4259,7 +4259,7 @@ declare enum CropToType {
   /**
    * Crop to the trim box.
    */
-  TRIMBOX = 4
+  TRIMBOX = 4,
 }
 
 /**
@@ -4294,7 +4294,7 @@ declare enum FontPreviewType {
   /**
    * Small type.
    */
-  SMALL = 1
+  SMALL = 1,
 }
 
 /**
@@ -4314,7 +4314,7 @@ declare enum FontSize {
   /**
    * Small size.
    */
-  SMALL = 1
+  SMALL = 1,
 }
 
 /**
@@ -4334,7 +4334,7 @@ declare enum MeasurementSource {
   /**
    * The measure selection.
    */
-  MEASURESELECTION = 1
+  MEASURESELECTION = 1,
 }
 
 /**
@@ -4349,7 +4349,7 @@ declare enum MeasurementRange {
   /**
    * All measurements.
    */
-  ALLMEASUREMENTS = 1
+  ALLMEASUREMENTS = 1,
 }
 
 /**
@@ -4369,7 +4369,7 @@ declare class Documents {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4425,7 +4425,7 @@ declare class Layers {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4462,7 +4462,7 @@ declare class LayerSets {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4504,7 +4504,7 @@ declare class ArtLayers {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4546,7 +4546,7 @@ declare class Channels {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4621,7 +4621,7 @@ declare class HistoryStates {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4653,7 +4653,7 @@ declare class LayerComps {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4701,7 +4701,7 @@ declare class TextFonts {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4733,7 +4733,7 @@ declare class PathItems {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4772,7 +4772,7 @@ declare class SubPathItems {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4804,7 +4804,7 @@ declare class PathPoints {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4836,7 +4836,7 @@ declare class Notifiers {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4881,7 +4881,7 @@ declare class CountItems {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4919,7 +4919,7 @@ declare class ColorSamplers {
   /**
    * The class name of the object.
    */
-  readonly typename: string
+  readonly typename: string;
 
   /**
    * Get an element in the collection with the provided index.
@@ -4943,7 +4943,7 @@ declare class ColorSamplers {
 /**
  * Options that can be specified when opening a document.
  */
-declare class OpenOptions { }
+declare class OpenOptions {}
 
 /**
  * DEPRECATED.
@@ -5327,7 +5327,7 @@ declare enum SaveOptions {
   /**
    * Save changes.
    */
-  SAVECHANGES = 1
+  SAVECHANGES = 1,
 }
 
 /**
@@ -5988,7 +5988,7 @@ declare class DCS2_SaveOptions {
 /**
  * Options for exporting an object.
  */
-declare class ExportOptions { }
+declare class ExportOptions {}
 
 /**
  * Options for exporting Illustrator paths.
@@ -6098,7 +6098,7 @@ declare class ExportOptionsSaveForWeb extends ExportOptions {
 /**
  * Options for converting documents.
  */
-declare class DocumentConversionOptions { }
+declare class DocumentConversionOptions {}
 
 /**
  * Options for changing the document mode to Bitmap.
@@ -6183,7 +6183,7 @@ declare class IndexedConversionOptions extends DocumentConversionOptions {
 /**
  * A color value.
  */
-declare class Color { }
+declare class Color {}
 
 /**
  * A color definition used in the document.
@@ -6444,7 +6444,7 @@ declare class HSBColor extends Color {
 /**
  * Represents a missing color.
  */
-declare class NoColor extends Color { }
+declare class NoColor extends Color {}
 
 /**
  * Options for the PDF presentation command.
@@ -9987,10 +9987,7 @@ declare class Layer {
    * @param relativeObject
    * @param insertionLocation
    */
-  duplicate(
-    relativeObject: object,
-    insertionLocation?: ElementPlacement
-  ): Layer
+  duplicate(relativeObject: object, insertionLocation?: ElementPlacement): Layer
 
   duplicate(): Layer
 
@@ -11072,7 +11069,7 @@ declare enum ElementPlacement {
   PLACEBEFORE = 2,
 
   INSIDE = 0,
-  PLACEATBEGINNING = 4
+  PLACEATBEGINNING = 4,
 }
 
 type UnitPoint = [UnitValue | number, UnitValue | number]

@@ -42,7 +42,7 @@ export default class ThemeManager {
         red: Math.abs(255 - color.red),
         green: Math.abs(255 - color.green),
         blue: Math.abs(255 - color.blue),
-        alpha: color.alpha
+        alpha: color.alpha,
       },
       delta
     )
@@ -71,18 +71,18 @@ export default class ThemeManager {
    * Update the theme with the AppSkinInfo retrieved from the host product.
    */
   public updateThemeWithAppSkinInfo(appSkinInfo: AppSkinInfo): void {
-    var panelBgColor = appSkinInfo.panelBackgroundColor.color as RGBColor
-    var bgdColor = this.toHex(panelBgColor)
+    const panelBgColor = appSkinInfo.panelBackgroundColor.color as RGBColor
+    const bgdColor = this.toHex(panelBgColor)
 
-    var darkBgdColor = this.toHex(panelBgColor, 20)
+    const darkBgdColor = this.toHex(panelBgColor, 20)
 
-    var fontColor = 'F0F0F0'
+    let fontColor = 'F0F0F0'
     if (panelBgColor.red > 122) {
       fontColor = '000000'
     }
-    var lightBgdColor = this.toHex(panelBgColor, -100)
+    const lightBgdColor = this.toHex(panelBgColor, -100)
 
-    var styleId = 'hostStyle'
+    const styleId = 'hostStyle'
 
     this.addRule(styleId, '.hostElt', 'background-color:' + '#' + bgdColor)
     this.addRule(

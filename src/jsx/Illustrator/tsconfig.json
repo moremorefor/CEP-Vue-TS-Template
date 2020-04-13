@@ -5,16 +5,16 @@
     "module": "none",
     "noLib": true,
     "typeRoots": [
-      "src/jsx/@types/libs/**/*",
-      "src/jsx/@types/shared/**/*",
-      "src/jsx/@types/Illustrator/2015.3/**/*"
+      "../@types/libs/**/*",
+      "../@types/shared/**/*",
+      "./@types/Illustrator/2015.3/**/*"
     ]
   },
   "exclude": ["node_modules"],
   "include": [
-    "./**/*.ts",
-    "./@types/libs/**/*",
-    "./@types/shared/**/*",
-    "./@types/Illustrator/2015.3/**/*"
+    "./*.ts",
+    "./@types/Illustrator/2015.3/**/*",
+    "../@types/libs/**/*",
+    "../@types/shared/**/*"
   ]
 }

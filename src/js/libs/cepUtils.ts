@@ -25,7 +25,7 @@ class CEPUtils {
       .split('/')
     const extensionName = extensionPathArr[extensionPathArr.length - 1]
     const dataPath = this._csInterface.getSystemPath(SystemPath.USER_DATA)
-    var OSVersion = this._csInterface.getOSInformation()
+    const OSVersion = this._csInterface.getOSInformation()
     let savePath
     if (OSVersion.indexOf('Windows') >= 0) {
       savePath = dataPath.replace('Roaming', 'LocalLow')

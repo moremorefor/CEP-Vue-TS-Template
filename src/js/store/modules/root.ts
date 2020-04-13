@@ -1,10 +1,9 @@
 import {
   Mutation,
-  MutationAction,
   Action,
   VuexModule,
   getModule,
-  Module
+  Module,
 } from 'vuex-module-decorators'
 import { store } from '../index'
 import configManager from '../../libs/configManager'
@@ -16,7 +15,7 @@ export interface RootState {
 @Module({ dynamic: true, store, name: 'root', namespaced: true })
 export default class Root extends VuexModule implements RootState {
   public config: object = {
-    sampleConfig: ''
+    sampleConfig: '',
   }
 
   @Mutation
@@ -27,13 +26,11 @@ export default class Root extends VuexModule implements RootState {
 
   @Action
   public fetchConfig(): Promise<void | object> {
-    return configManager.load().then(
-      (config: void | object): void => {
-        if (config) {
-          this.saveConfig(config)
-        }
+    return configManager.load().then((config: void | object): void => {
+      if (config) {
+        this.saveConfig(config)
       }
-    )
+    })
   }
 }
 

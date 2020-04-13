@@ -20,7 +20,7 @@ function isNodeJSEnabled(): void {
       'Node.js is enabled: ',
       csInterface.getSystemPath(SystemPath.EXTENSION)
     )
-    var list = fs.readdirSync(csInterface.getSystemPath(SystemPath.EXTENSION))
+    const list = fs.readdirSync(csInterface.getSystemPath(SystemPath.EXTENSION))
     console.log(list)
   } else {
     console.log('Node.js is none')
@@ -69,7 +69,7 @@ async function init(): Promise<any> {
   new Vue({
     components: { App },
     template: '<App/>',
-    store
+    store,
   }).$mount('#app')
 
   $('#btn_reload').click((): void => {

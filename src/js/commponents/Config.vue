@@ -30,10 +30,10 @@ export default class Config extends Vue {
   }
 
   saveSampleConfig() {
-    var el = this.$refs.sampleConfigInput as HTMLInputElement
+    const el = this.$refs.sampleConfigInput as HTMLInputElement
     const newData = {
       ...this.config,
-      sampleConfig: el.value
+      sampleConfig: el.value,
     }
     rootModule.saveConfig(newData)
   }

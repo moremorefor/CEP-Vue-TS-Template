@@ -1,5 +1,5 @@
-/// <reference path="../../shared/global.d.ts" />
-/// <reference path="../../shared/ScriptUI.d.ts" />
+/// <reference path="../../../../@types/shared/global.d.ts" />
+/// <reference path="../../../../@types/shared/ScriptUI.d.ts" />
 
 /**
  * The screen mode.
@@ -3769,7 +3769,7 @@ declare class Documents extends Array {
     numArtboards?: number,
     artboardLayout?: DocumentArtboardLayout,
     artboardSpacing?: number,
-    artboardRowsOrCols?: number,
+    artboardRowsOrCols?: number
   ): Document
 
   /**
@@ -3781,7 +3781,7 @@ declare class Documents extends Array {
   static addDocument(
     startupPreset: string,
     presetSettings?: DocumentPreset,
-    showOptionsDialog?: boolean,
+    showOptionsDialog?: boolean
   ): Document
 
   /**
@@ -3789,7 +3789,10 @@ declare class Documents extends Array {
    * @param startupPreset The name of startup document preset.
    * @param showOptionsDialog Argument controls if options Dialog is shown or not.
    */
-  static addDocumentWithDialogOption(startupPreset: string, showOptionsDialog?: boolean): Document
+  static addDocumentWithDialogOption(
+    startupPreset: string,
+    showOptionsDialog?: boolean
+  ): Document
 
   /**
    * Arranges the documents in the specified style.
@@ -3947,7 +3950,7 @@ declare class PathItems extends Array {
     width?: number,
     height?: number,
     reversed?: boolean,
-    inscribed?: boolean,
+    inscribed?: boolean
   ): PathItem
 
   /**
@@ -3969,7 +3972,7 @@ declare class PathItems extends Array {
     centerY?: number,
     radius?: number,
     sides?: number,
-    reversed?: boolean,
+    reversed?: boolean
   ): PathItem
 
   /**
@@ -3985,7 +3988,7 @@ declare class PathItems extends Array {
     left: number,
     width: number,
     height: number,
-    reversed?: boolean,
+    reversed?: boolean
   ): PathItem
 
   /**
@@ -4010,7 +4013,7 @@ declare class PathItems extends Array {
     height: number,
     horizontalRadius?: number,
     verticalRadius?: number,
-    reversed?: boolean,
+    reversed?: boolean
   ): PathItem
 
   /**
@@ -4028,7 +4031,7 @@ declare class PathItems extends Array {
     radius?: number,
     innerRadius?: number,
     points?: number,
-    reversed?: boolean,
+    reversed?: boolean
   ): PathItem
 }
 
@@ -4165,7 +4168,7 @@ declare class TextFrameItems extends Array {
     textPath: PathItem,
     orientation?: TextOrientation,
     baseFrame?: TextFrameItem,
-    postFix?: boolean,
+    postFix?: boolean
   ): TextFrameItem
 
   /**
@@ -4189,7 +4192,7 @@ declare class TextFrameItems extends Array {
     endTValue?: number,
     orientation?: TextOrientation,
     baseFrame?: TextFrameItem,
-    postFix?: boolean,
+    postFix?: boolean
   ): TextFrameItem
 
   /**
@@ -4197,7 +4200,10 @@ declare class TextFrameItems extends Array {
    * @param anchor The position (coordinates) of the anchor point.
    * @param orientation The orientation of the text.
    */
-  static pointText(anchor: Point | [number, number], orientation?: TextOrientation): TextFrameItem
+  static pointText(
+    anchor: Point | [number, number],
+    orientation?: TextOrientation
+  ): TextFrameItem
 
   /**
    * Deletes all elements.
@@ -7805,7 +7811,7 @@ declare class Application {
     destinationSequenceID: number,
     destinationIndex: number,
     srcItemIDData: string,
-    type: string,
+    type: string
   ): string
 
   /**
@@ -7849,7 +7855,11 @@ declare class Application {
    * @param relative The current relative path token.
    * @param newRelative The new relative path token.
    */
-  aATFileRelativeChanged(path: string, relative: string, newRelative: string): string
+  aATFileRelativeChanged(
+    path: string,
+    relative: string,
+    newRelative: string
+  ): string
 
   /**
    * Prompts the user to save a file or choose a file or directory and returns a relative path string to the file.
@@ -7912,7 +7922,7 @@ declare class Application {
     moveThisID: string,
     newSessionIndex: number,
     destinationSequenceID: string,
-    destinationIndex: number,
+    destinationIndex: number
   ): string
 
   /**
@@ -7933,7 +7943,7 @@ declare class Application {
     sessionIndex: number,
     replaceThisID: number,
     srcItemIDData: string,
-    type: string,
+    type: string
   ): string
 
   /**
@@ -7965,7 +7975,7 @@ declare class Application {
     sessionIndex: number,
     item: string,
     dataID: string,
-    data: string,
+    data: string
   ): boolean
 
   /**
@@ -8003,7 +8013,11 @@ declare class Application {
    * @param scaleX Horizontal scaling factor expressed as a percentage (100 = 100%)
    * @param scaleY Vertical scaling factor expressed as a percentage (100 = 100%)
    */
-  concatenateScaleMatrix(matrix: Matrix, scaleX?: number, scaleY?: number): Matrix
+  concatenateScaleMatrix(
+    matrix: Matrix,
+    scaleX?: number,
+    scaleY?: number
+  ): Matrix
 
   /**
    * Concatenate a translation to a transformation matrix.
@@ -8011,7 +8025,11 @@ declare class Application {
    * @param deltaX Horizontal transformation.
    * @param deltaY Vertical transformation.
    */
-  concatenateTranslationMatrix(matrix: Matrix, deltaX?: number, deltaY?: number): Matrix
+  concatenateTranslationMatrix(
+    matrix: Matrix,
+    deltaX?: number,
+    deltaY?: number
+  ): Matrix
 
   /**
    * Converts a sample-component color from one color space to another.
@@ -8028,7 +8046,7 @@ declare class Application {
     destColorSpace: ImageColorSpace,
     colorConvertPurpose: ColorConvertPurpose,
     sourceHasAlpha?: boolean,
-    destHasAlpha?: boolean,
+    destHasAlpha?: boolean
   ): number[]
 
   /**
@@ -8061,7 +8079,11 @@ declare class Application {
    * @param documentColorSpace Choose color space only for documents saved with multiple color models (pre-Illustrator 9)
    * @param pGFFile Folder to save the output PGF file.
    */
-  dumpPGFFile(file: File, documentColorSpace?: DocumentColorSpace, pGFFile?: File): boolean
+  dumpPGFFile(
+    file: File,
+    documentColorSpace?: DocumentColorSpace,
+    pGFFile?: File
+  ): boolean
 
   /**
    * Executes a menu command using the menu shortcut string.
@@ -8201,7 +8223,11 @@ declare class Application {
    * @param documentColorSpace Choose color space only for documents saved with multiple color models (pre-Illustrator 9)
    * @param options Options for opening a particular type of file.
    */
-  open(file: File, documentColorSpace?: DocumentColorSpace, options?: any): Document
+  open(
+    file: File,
+    documentColorSpace?: DocumentColorSpace,
+    options?: any
+  ): Document
 
   /**
    * For Internal Use.
@@ -8209,7 +8235,11 @@ declare class Application {
    * @param thumbnailURL For Internal use.
    * @param options For internal use.
    */
-  openCloudLibraryAssetForEditing(assetURL: File, thumbnailURL: File, options?: any): Document
+  openCloudLibraryAssetForEditing(
+    assetURL: File,
+    thumbnailURL: File,
+    options?: any
+  ): Document
 
   /**
    * Paste clipboard into the current document.
@@ -8260,7 +8290,11 @@ declare class Application {
    * @param messageSelector Functionality that is to be executed.
    * @param inputString Pass any data encoded in a string.
    */
-  sendScriptMessage(pluginName: string, messageSelector: string, inputString: string): string
+  sendScriptMessage(
+    pluginName: string,
+    messageSelector: string,
+    inputString: string
+  ): string
 
   /**
    * For Internal Use.
@@ -8721,7 +8755,7 @@ declare class Document {
   convertCoordinate(
     coordinate: Point | [number, number],
     source: CoordinateSystem,
-    destination: CoordinateSystem,
+    destination: CoordinateSystem
   ): Point | [number, number]
 
   /**
@@ -8791,7 +8825,11 @@ declare class Document {
    * @param clipBounds The rectangular region of the artwork for image capture. If the parameter is omitted, the entire artwork bound is captured.
    * @param options Describes the image capture options.
    */
-  imageCapture(imageFile: File, clipBounds?: Rect, options?: ImageCaptureOptions): void
+  imageCapture(
+    imageFile: File,
+    clipBounds?: Rect,
+    options?: ImageCaptureOptions
+  ): void
 
   /**
    * Load the character styles from the Illustrator file.
@@ -8820,7 +8858,7 @@ declare class Document {
     modifiedTime?: number,
     creationTime?: number,
     adobeStockId?: string,
-    adobeStockLicense?: string,
+    adobeStockLicense?: string
   ): void
 
   /**
@@ -8874,7 +8912,11 @@ declare class Document {
    * @param clipBounds The rectangular region of the artwork for the rasterization. If the parameter is omitted, the bounds of the source art(s) is used instead.
    * @param options Describes the rasterization options.
    */
-  rasterize(sourceArt: any, clipBounds?: Rect, options?: RasterizeOptions): RasterItem
+  rasterize(
+    sourceArt: any,
+    clipBounds?: Rect,
+    options?: RasterizeOptions
+  ): RasterItem
 
   /**
    * Rearrange Artboards in the document.
@@ -8887,7 +8929,7 @@ declare class Document {
     artboardLayout?: DocumentArtboardLayout,
     artboardRowsOrCols?: number,
     artboardSpacing?: number,
-    artboardMoveArtwork?: boolean,
+    artboardMoveArtwork?: boolean
   ): boolean
 
   /**
@@ -8917,7 +8959,9 @@ declare class Document {
    * Sets the active perspective plane for the active grid of the document.
    * @param perspectiveGridPlane Type of perspective grid plane.
    */
-  setPerspectiveActivePlane(perspectiveGridPlane: PerspectiveGridPlaneType): boolean
+  setPerspectiveActivePlane(
+    perspectiveGridPlane: PerspectiveGridPlaneType
+  ): boolean
 
   /**
    * Shows the current active perspective grid for the document, if no active perspective grid then shows the default perspective grid for the document.
@@ -9874,7 +9918,7 @@ declare class PageItem {
   bringInPerspective(
     positionX: number,
     positionY: number,
-    perspectiveGridPlane: PerspectiveGridPlaneType,
+    perspectiveGridPlane: PerspectiveGridPlaneType
   ): void
 
   /**
@@ -9920,7 +9964,7 @@ declare class PageItem {
     changeFillGradients?: boolean,
     changeStrokePattern?: boolean,
     changeLineWidths?: number,
-    scaleAbout?: Transformation,
+    scaleAbout?: Transformation
   ): void
 
   /**
@@ -9938,7 +9982,7 @@ declare class PageItem {
     changeFillPatterns?: boolean,
     changeFillGradients?: boolean,
     changeStrokePattern?: boolean,
-    rotateAbout?: Transformation,
+    rotateAbout?: Transformation
   ): void
 
   /**
@@ -9947,7 +9991,11 @@ declare class PageItem {
    * @param messageSelector Functionality that is to be executed.
    * @param inputString Pass any data encoded in a string.
    */
-  sendScriptMessage(pluginName: string, messageSelector: string, inputString: string): string
+  sendScriptMessage(
+    pluginName: string,
+    messageSelector: string,
+    inputString: string
+  ): string
 
   /**
    * Transform art object(s) using a transformation matrix.
@@ -9966,7 +10014,7 @@ declare class PageItem {
     changeFillGradients?: boolean,
     changeStrokePattern?: boolean,
     changeLineWidths?: number,
-    transformAbout?: Transformation,
+    transformAbout?: Transformation
   ): void
 
   /**
@@ -9984,7 +10032,7 @@ declare class PageItem {
     transformObjects?: boolean,
     transformFillPatterns?: boolean,
     transformFillGradients?: boolean,
-    transformStrokePattern?: boolean,
+    transformStrokePattern?: boolean
   ): void
 
   /**
@@ -10883,7 +10931,7 @@ declare class TextFrameItem extends PageItem {
     textString: string,
     fontSize: number,
     textColor: Color,
-    destinationPath: File,
+    destinationPath: File
   ): void
 }
 

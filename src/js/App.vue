@@ -15,8 +15,8 @@ import Config from './commponents/Config.vue'
 @Component({
   components: {
     Buttons,
-    Config
-  }
+    Config,
+  },
 })
 export default class App extends Vue {
   get config() {

@@ -1,4 +1,3 @@
-/// <reference types="../@types/Photoshop/2015.5"/>
 app.preferences.rulerUnits = Units.PIXELS
 
 function historyCall(args: any): void {

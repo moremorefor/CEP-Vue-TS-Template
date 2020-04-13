@@ -19,41 +19,35 @@ export default class JSXInterface {
   }
 
   private _sendJSXString(f: string, args: string): Promise<void | object> {
-    const self = this
     console.log('【DEBUG】_sendJSXString: ', f, args)
 
-    return new Promise(function(resolve, reject): void {
-      self.csInterface.evalScript(
-        f + '(' + args + ')',
-        (res: string): void => {
-          console.log('【DEBUG】csInterface response: ', res)
-          // If return; from jsx, returning 'undefined'
-          if (res == 'EvalScript error.') {
-            reject(res)
-          } else if (res !== 'undefined' && res !== 'false') {
-            resolve(JSON.parse(res))
-          } else {
-            resolve()
-          }
+    return new Promise((resolve, reject) => {
+      this.csInterface.evalScript(f + '(' + args + ')', (res: string): void => {
+        console.log('【DEBUG】csInterface response: ', res)
+        // If return; from jsx, returning 'undefined'
+        if (res == 'EvalScript error.') {
+          reject(res)
+        } else if (res !== 'undefined' && res !== 'false') {
+          resolve(JSON.parse(res))
+        } else {
+          resolve()
         }
-      )
+      })
     })
   }
 
   private _sendJSX(f: string, params?: object): Promise<void | object> {
-    const self = this
     let paramsObj = params
     if (!paramsObj) paramsObj = {}
     const paramsString = JSON.stringify(paramsObj)
 
-    return new Promise(function(resolve, reject): void {
-      self
-        ._sendJSXString(f, paramsString)
-        .then(function(res: void | object): void {
+    return new Promise((resolve, reject) => {
+      this._sendJSXString(f, paramsString)
+        .then(function (res: void | object): void {
           console.log('res: ', res)
           resolve(res)
         })
-        .catch(function(e: void | object): void {
+        .catch(function (e: void | object): void {
           reject(e)
         })
     })
