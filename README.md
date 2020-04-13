@@ -37,7 +37,7 @@ CEP Extention template with Vue and TypeScript.
 
 3.  Build & Run
 
-        $ yarn start
+        $ yarn dev
 
 4.  Restart Adobe applications
 
