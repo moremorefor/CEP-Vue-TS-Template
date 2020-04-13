@@ -2,6 +2,9 @@
   "name": "CEP-Vue-TS-Template",
   "bundleId": "net.moremorefor.cep-vue-ts-template",
   "version": "0.0.1",
-  "application": ["Photoshop", "Illustrator"],
+  "application": [
+    "Photoshop",
+    "Illustrator"
+  ],
   "debugPort": "8088"
 }
