@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { RootState } from './modules/root'
+import { getModule } from 'vuex-module-decorators'
+import ConfigStore from './modules/config'
+
 Vue.use(Vuex)
 
-export interface State {
-  root: RootState
-}
-
-export const store = new Vuex.Store<State>({})
+export const store = new Vuex.Store({
+  state: {},
+  modules: {
+    ConfigStore,
+  },
+})
+export const configModule = getModule(ConfigStore, store)

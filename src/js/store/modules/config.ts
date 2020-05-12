@@ -1,19 +1,8 @@
-import {
-  Mutation,
-  Action,
-  VuexModule,
-  getModule,
-  Module,
-} from 'vuex-module-decorators'
-import { store } from '../index'
+import { Mutation, Action, VuexModule, Module } from 'vuex-module-decorators'
 import configManager from '../../libs/configManager'
 
-export interface RootState {
-  config: object
-}
-
-@Module({ dynamic: true, store, name: 'root', namespaced: true })
-export default class Root extends VuexModule implements RootState {
+@Module({ name: 'ConfigStore', namespaced: true })
+export default class ConfigStore extends VuexModule {
   public config: object = {
     sampleConfig: '',
   }
@@ -33,5 +22,3 @@ export default class Root extends VuexModule implements RootState {
     })
   }
 }
-
-export const rootModule = getModule(Root)

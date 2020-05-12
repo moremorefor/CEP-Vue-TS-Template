@@ -18,7 +18,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
-import { rootModule } from '../store/modules/root'
+import { configModule } from '../store'
 
 @Component
 export default class Config extends Vue {
@@ -35,7 +35,7 @@ export default class Config extends Vue {
       ...this.config,
       sampleConfig: el.value,
     }
-    rootModule.saveConfig(newData)
+    configModule.saveConfig(newData)
   }
 }
 </script>

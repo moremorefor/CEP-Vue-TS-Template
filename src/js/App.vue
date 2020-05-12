@@ -8,7 +8,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { rootModule } from './store/modules/root'
+import { configModule } from './store'
 import Buttons from './commponents/Buttons.vue'
 import Config from './commponents/Config.vue'
 
@@ -20,11 +20,11 @@ import Config from './commponents/Config.vue'
 })
 export default class App extends Vue {
   get config() {
-    return rootModule.config
+    return configModule.config
   }
 
   created() {
-    rootModule.fetchConfig().then(() => {
+    configModule.fetchConfig().then(() => {
       console.log('root/fetchConfig')
     })
   }
