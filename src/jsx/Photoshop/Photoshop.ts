@@ -1,8 +1,8 @@
 app.preferences.rulerUnits = Units.PIXELS
 
 function historyCall(args: any): void {
-  var func = args['func']
-  var params = args['params']
+  const func = args['func']
+  const params = args['params']
   try {
     app.activeDocument
   } catch (e) {

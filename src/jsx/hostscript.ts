@@ -1,5 +1,5 @@
 function jsxAlert(args: any): void {
-  var content = args['content']
+  const content = args['content']
   alert(content)
 }
 
@@ -7,9 +7,9 @@ function jsxAlert(args: any): void {
 // File
 ///////////////////////////////////////////////////////////////////////////////
 function recursiveFileDelete(folderObj: Folder): void {
-  var files = folderObj.getFiles(null)
+  const files = folderObj.getFiles(null)
   if (files.length > 0) {
-    for (var i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       if (!files[i].remove()) {
         recursiveFileDelete(files[i] as Folder)
       }
@@ -18,7 +18,7 @@ function recursiveFileDelete(folderObj: Folder): void {
 }
 
 function createFolder(folderObj: Folder): boolean {
-  var result
+  let result
   if (!folderObj.exists) {
     result = folderObj.create()
     if (!result) {
@@ -33,7 +33,7 @@ function createFolder(folderObj: Folder): boolean {
 }
 
 function selectFolder(): Folder | boolean {
-  var folderObj = Folder.selectDialog('Select Folder...')
+  const folderObj = Folder.selectDialog('Select Folder...')
 
   if (folderObj) {
     return folderObj
@@ -43,15 +43,15 @@ function selectFolder(): Folder | boolean {
 }
 
 function getFileList(args: any): string | void {
-  var folderPath = args['folderPath']
-  var folderObj = new Folder(folderPath)
-  var files = folderObj.getFiles(args['ext'])
-  var filepaths = []
+  const folderPath = args['folderPath']
+  const folderObj = new Folder(folderPath)
+  const files = folderObj.getFiles(args['ext'])
+  const filepaths = []
   if (files.length > 0) {
-    for (var i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       filepaths.push(files[i].fsName)
     }
-    var obj = { folderPath: folderPath, filepaths: filepaths }
+    const obj = { folderPath: folderPath, filepaths: filepaths }
     return JSON.stringify(obj)
   } else {
     // alert("jsx file not found.");
@@ -63,8 +63,8 @@ function selectFile(
   fileFilter?: string,
   multipleFlag?: boolean
 ): File | Folder | boolean {
-  var title = dialogText || 'Select File...'
-  var fileObj = File.openDialog(title, fileFilter, multipleFlag)
+  const title = dialogText || 'Select File...'
+  const fileObj = File.openDialog(title, fileFilter, multipleFlag)
   if (!fileObj) {
     // alert('File was not selected.')
     return false
@@ -74,27 +74,27 @@ function selectFile(
 }
 
 function readFile(args: any): string {
-  var path = args['path']
-  var fileObj = new File(path)
+  const path = args['path']
+  const fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
-  var flag = fileObj.open('r')
+  const flag = fileObj.open('r')
   if (flag == true) {
-    var content = fileObj.read()
+    const content = fileObj.read()
     return content
   }
 }
 
 function writeFile(args: any): boolean {
-  var path = args['path']
-  var txt = args['content']
+  const path = args['path']
+  const txt = args['content']
 
-  var fileObj = new File(path)
+  const fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
 
   // overwrite
-  var flag = fileObj.open('w')
+  const flag = fileObj.open('w')
   if (flag === true) {
-    var text = txt
+    const text = txt
     fileObj.writeln(text)
     fileObj.close()
     return true

@@ -12,11 +12,19 @@ module.exports = {
     project: ["./tsconfig.json", "./src/jsx/**/tsconfig.json"],
   },
   extends: [
+    // base
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    '@vue/prettier/@typescript-eslint',
+
+    // plugins
+    'plugin:@typescript-eslint/recommended',
     "plugin:vue/recommended",
     "plugin:prettier/recommended",
+
+    // prettier
     "prettier/@typescript-eslint",
-    "@vue/typescript",
-    "@vue/prettier",
+    "prettier/vue"
   ],
   rules: {
     "no-console": "warn",

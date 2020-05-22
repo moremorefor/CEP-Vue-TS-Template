@@ -31,11 +31,12 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="sass" scoped>
-#app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  margin-top: 20px
+<style lang="scss" scoped>
+#app {
+  margin-top: 20px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 </style>

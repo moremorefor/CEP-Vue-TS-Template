@@ -1,0 +1,23 @@
+$font-gothic: verdana, "游ゴシック", yugothic, "Hiragino Kaku Gothic ProN",
+  meiryo, sans-serif;
+
+body {
+  margin: 15px;
+  font-family: $font-gothic;
+}
+
+input {
+  display: block;
+}
+
+#content {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: middle;
+}
+
+#btn_select {
+  width: 100%;
+  margin-bottom: 10px;
+}

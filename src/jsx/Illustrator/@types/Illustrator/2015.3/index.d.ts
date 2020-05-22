@@ -4774,13 +4774,13 @@ declare class Symbols extends Array {
    * @param sourceArt The art item from which to make this symbol.
    * @param registrationPoint The symbol registration point.
    */
-  add(sourceArt: PageItem, registrationPoint?: SymbolRegistrationPoint): Symbol
+  add(sourceArt: PageItem, registrationPoint?: SymbolRegistrationPoint): symbol
 
   /**
    * Get the first element in the collection with the provided name.
    * @param name
    */
-  getByName(name: string): Symbol
+  getByName(name: string): symbol
 
   /**
    * Deletes all elements.
@@ -4811,7 +4811,7 @@ declare class SymbolItems extends Array {
    * An instance of a symbol item.
    * @param symbol The symbol to make an instance of.
    */
-  add(symbol: Symbol): SymbolItem
+  add(symbol: symbol): SymbolItem
 
   /**
    * Get the first element in the collection with the provided name.
@@ -8488,7 +8488,7 @@ declare class Document {
   /**
    * The bounds of the illustration excluding stroke width.
    */
-  readonly geometricBounds: [Number, Number, Number, Number]
+  readonly geometricBounds: [number, number, number, number]
 
   /**
    * The gradients available in this document.
@@ -8728,7 +8728,7 @@ declare class Document {
   /**
    * The visible bounds of the illustration including stroke width.
    */
-  readonly visibleBounds: [Number, Number, Number, Number]
+  readonly visibleBounds: [number, number, number, number]
 
   /**
    *
@@ -9633,7 +9633,7 @@ declare class Symbol {
    * @param relativeObject
    * @param insertionLocation
    */
-  duplicate(relativeObject: object, insertionLocation: any): Symbol
+  duplicate(relativeObject: object, insertionLocation: any): symbol
 
   /**
    * Deletes this object.
@@ -9771,7 +9771,7 @@ declare class PageItem {
   /**
    * The bounds of the artwork including stroke width and controls.
    */
-  readonly controlBounds: [Number, Number, Number, Number]
+  readonly controlBounds: [number, number, number, number]
 
   /**
    * Can the art item be modified.
@@ -9781,7 +9781,7 @@ declare class PageItem {
   /**
    * The bounds of the artwork excluding stroke width.
    */
-  readonly geometricBounds: [Number, Number, Number, Number]
+  readonly geometricBounds: [number, number, number, number]
 
   /**
    * The height of the art item.
@@ -9876,7 +9876,7 @@ declare class PageItem {
   /**
    * The visible bounds of the artwork including stroke width.
    */
-  readonly visibleBounds: [Number, Number, Number, Number]
+  readonly visibleBounds: [number, number, number, number]
 
   /**
    * The width of the art item.
@@ -10507,7 +10507,7 @@ declare class SymbolItem extends PageItem {
   /**
    * The symbol that was used to create this symbol item.
    */
-  symbol: Symbol
+  symbol: symbol
 
   /**
    * Break link to the symbol.

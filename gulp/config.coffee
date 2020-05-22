@@ -9,7 +9,7 @@ path =
     dir    : srcDir
     html   : srcDir + '/*.html'
     css    : srcDir + '/css/*.min.css'
-    sass   : srcDir + '/css/app.sass'
+    sass   : srcDir + '/css/app.scss'
     img    : srcDir + '/img/*'
     js     : './' + srcDir + '/js/main.js'
     jslib  : './' + srcDir + '/js/libs-js/*.js'
