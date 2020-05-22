@@ -21,6 +21,8 @@ module.exports = {
         // other
         "font-family-no-missing-generic-family-keyword": true,
         "declaration-block-trailing-semicolon": "always",
-        "selector-pseudo-element-colon-notation": "double"
+        "selector-pseudo-element-colon-notation": "double",
+        "no-empty-source": null,
+        "no-descending-specificity": [true, { "severity": "warning" }]
     }
 };

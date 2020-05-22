@@ -31,6 +31,7 @@ module.exports = {
     "space-before-function-paren": "off",
     "arrow-parens": "off",
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "vue/html-self-closing": [
       "error",
       {
