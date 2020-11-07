@@ -1,6 +1,6 @@
-import cepUtils from './cepUtils'
-import { CSInterface } from 'csinterface-ts'
 import * as fs from 'fs'
+import { CSInterface } from 'csinterface-ts'
+import cepUtils from './cepUtils'
 
 export default class JSXInterface {
   private static _instance: JSXInterface
@@ -25,7 +25,7 @@ export default class JSXInterface {
       this.csInterface.evalScript(f + '(' + args + ')', (res: string): void => {
         console.log('【DEBUG】csInterface response: ', res)
         // If return; from jsx, returning 'undefined'
-        if (res == 'EvalScript error.') {
+        if (res === 'EvalScript error.') {
           reject(res)
         } else if (res !== 'undefined' && res !== 'false') {
           resolve(JSON.parse(res))
@@ -59,7 +59,7 @@ export default class JSXInterface {
 
   public alert(message: string): void {
     console.log(message)
-    this.evaluateJSX('jsxAlert', { message: message })
+    this.evaluateJSX('jsxAlert', { message })
   }
 
   public registerInclude(filepath: string): void {

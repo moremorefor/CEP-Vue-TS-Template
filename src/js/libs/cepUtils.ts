@@ -27,7 +27,7 @@ class CEPUtils {
     const dataPath = this._csInterface.getSystemPath(SystemPath.USER_DATA)
     const OSVersion = this._csInterface.getOSInformation()
     let savePath
-    if (OSVersion.indexOf('Windows') >= 0) {
+    if (OSVersion.includes('Windows')) {
       savePath = dataPath.replace('Roaming', 'LocalLow')
     } else {
       savePath = dataPath

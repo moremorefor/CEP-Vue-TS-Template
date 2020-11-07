@@ -159,7 +159,9 @@ export default class ThemeManager {
 
   public constructor() {
     this.csInterface = new CSInterface()
+  }
 
+  public init() {
     this.updateThemeWithAppSkinInfo(
       this.csInterface.hostEnvironment.appSkinInfo
     )

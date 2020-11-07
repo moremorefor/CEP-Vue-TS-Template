@@ -1,28 +1,24 @@
 module.exports = {
-    "plugins": [
-        "stylelint-scss",
-        "stylelint-prettier",
-        "stylelint-declaration-block-no-ignored-properties",
-    ],
-    "extends": [
-        "stylelint-config-standard",
-        "stylelint-prettier/recommended",
-        "stylelint-config-rational-order"
-    ],
-    "ignoreFiles": [
-        "**/node_modules/**"
-    ],
-    "rules": {
-        // plugins
-        "prettier/prettier": true,
-        "plugin/declaration-block-no-ignored-properties": true,
+  plugins: [
+    'stylelint-scss',
+    'stylelint-declaration-block-no-ignored-properties',
+  ],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-prettier',
+    'stylelint-config-rational-order',
+  ],
+  ignoreFiles: ['**/node_modules/**', 'src/css/*.min.css'],
+  rules: {
+    // plugins
+    'plugin/declaration-block-no-ignored-properties': true,
 
-
-        // other
-        "font-family-no-missing-generic-family-keyword": true,
-        "declaration-block-trailing-semicolon": "always",
-        "selector-pseudo-element-colon-notation": "double",
-        "no-empty-source": null,
-        "no-descending-specificity": [true, { "severity": "warning" }]
-    }
-};
+    // other
+    'font-family-no-missing-generic-family-keyword': true,
+    'selector-pseudo-element-colon-notation': 'double',
+    'no-empty-source': null,
+    'no-descending-specificity': [true, { severity: 'warning' }],
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
+  },
+}

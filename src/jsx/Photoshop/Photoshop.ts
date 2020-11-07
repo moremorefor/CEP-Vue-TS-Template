@@ -1,10 +1,10 @@
 app.preferences.rulerUnits = Units.PIXELS
 
 function historyCall(args: any): void {
-  const func = args['func']
-  const params = args['params']
+  const func = args.func
+  const params = args.params
   try {
-    app.activeDocument
+    const d = app.activeDocument
   } catch (e) {
     alert(
       'Active document not found.\nsuspendHistory is active document required.'

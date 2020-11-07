@@ -1,2 +1,11 @@
+public/
 node_modules/
-src/jsx/**/@types/**/*.d.ts
+setup/
+src/css/*.min.css
+src/js/**/*.d.ts
+src/js/libs-js/*.js
+src/jsx/**/*.d.ts
+src/jsx/**/*.jsx
+src/jsx/**/*.js
+.eslintrc.js
+webpack.config.js

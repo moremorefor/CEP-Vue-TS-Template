@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h4 class="headline">
-      Config save sample
-    </h4>
+    <h4 class="headline">Config save sample</h4>
     <div class="input">
       <input
         ref="sampleConfigInput"
@@ -10,9 +8,7 @@
         placeholder="SampleConfig"
         :value="config.sampleConfig"
       />
-      <button class="topcoat-button" @click="saveSampleConfig">
-        Save
-      </button>
+      <button class="topcoat-button" @click="saveSampleConfig">Save</button>
     </div>
 
     <blockquote class="printData">

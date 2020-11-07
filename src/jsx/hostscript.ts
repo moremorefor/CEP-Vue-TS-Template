@@ -1,11 +1,11 @@
 function jsxAlert(args: any): void {
-  const content = args['content']
+  const content = args.content
   alert(content)
 }
 
-///////////////////////////////////////////////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////
 // File
-///////////////////////////////////////////////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////
 function recursiveFileDelete(folderObj: Folder): void {
   const files = folderObj.getFiles(null)
   if (files.length > 0) {
@@ -43,15 +43,15 @@ function selectFolder(): Folder | boolean {
 }
 
 function getFileList(args: any): string | void {
-  const folderPath = args['folderPath']
+  const folderPath = args.folderPath
   const folderObj = new Folder(folderPath)
-  const files = folderObj.getFiles(args['ext'])
+  const files = folderObj.getFiles(args.ext)
   const filepaths = []
   if (files.length > 0) {
     for (let i = 0; i < files.length; i++) {
       filepaths.push(files[i].fsName)
     }
-    const obj = { folderPath: folderPath, filepaths: filepaths }
+    const obj = { folderPath, filepaths }
     return JSON.stringify(obj)
   } else {
     // alert("jsx file not found.");
@@ -74,19 +74,19 @@ function selectFile(
 }
 
 function readFile(args: any): string {
-  const path = args['path']
+  const path = args.path
   const fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
   const flag = fileObj.open('r')
-  if (flag == true) {
+  if (flag === true) {
     const content = fileObj.read()
     return content
   }
 }
 
 function writeFile(args: any): boolean {
-  const path = args['path']
-  const txt = args['content']
+  const path = args.path
+  const txt = args.content
 
   const fileObj = new File(path)
   fileObj.encoding = 'UTF-8'
