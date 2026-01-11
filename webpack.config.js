@@ -38,7 +38,13 @@ module.exports = {
             loader: 'css-loader',
             options: { sourceMap: true, esModule: false },
           },
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sourceMap: true
+            }
+          },
           {
             loader: 'sass-resources-loader',
             options: {
