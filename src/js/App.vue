@@ -5,30 +5,20 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-import { configModule } from './store'
+<script setup lang="ts">
+import { computed, onMounted } from 'vue'
+import { useConfigStore } from './store/config'
 import Buttons from './commponents/Buttons.vue'
 import Config from './commponents/Config.vue'
 
-@Component({
-  components: {
-    Buttons,
-    Config,
-  },
-})
-export default class App extends Vue {
-  get config() {
-    return configModule.config
-  }
+const store = useConfigStore()
+const config = computed(() => store.config)
 
-  created() {
-    configModule.fetchConfig().then(() => {
-      console.log('root/fetchConfig')
-    })
-  }
-}
+onMounted(() => {
+  store.fetchConfig().then(() => {
+    console.log('root/fetchConfig')
+  })
+})
 </script>
 
 <style lang="scss" scoped>

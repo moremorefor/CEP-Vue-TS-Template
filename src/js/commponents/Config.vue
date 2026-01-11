@@ -17,28 +17,28 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
-import { configModule } from '../store'
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useConfigStore } from '../store/config'
 
-@Component
-export default class Config extends Vue {
-  @Prop({ type: Object })
-  config!: object
+const store = useConfigStore()
+const props = defineProps<{
+  config: any
+}>()
 
-  get printData() {
-    return JSON.stringify(this.config, null, '    ')
+const sampleConfigInput = ref<HTMLInputElement | null>(null)
+
+const printData = computed(() => {
+  return JSON.stringify(props.config, null, '    ')
+})
+
+const saveSampleConfig = () => {
+  if (!sampleConfigInput.value) return
+  const newData = {
+    ...props.config,
+    sampleConfig: sampleConfigInput.value.value,
   }
-
-  saveSampleConfig() {
-    const el = this.$refs.sampleConfigInput as HTMLInputElement
-    const newData = {
-      ...this.config,
-      sampleConfig: el.value,
-    }
-    configModule.saveConfig(newData)
-  }
+  store.saveConfig(newData)
 }
 </script>
 

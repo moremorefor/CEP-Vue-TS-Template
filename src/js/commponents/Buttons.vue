@@ -31,41 +31,32 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+<script setup lang="ts">
 import cepUtils from '../libs/cepUtils'
 import JSXInterface from '../libs/jsxInterface'
+
 const jsxInterface = JSXInterface.getInstance()
+const applicationName = cepUtils.getApplicationName()
 
-@Component
-export default class Buttons extends Vue {
-  applicationName = ''
+const helloAlert = () => {
+  jsxInterface.evaluateJSX('jsxAlert', {
+    content: 'Hello World',
+  })
+}
 
-  created() {
-    this.applicationName = cepUtils.getApplicationName()
-  }
-
-  helloAlert() {
-    jsxInterface.evaluateJSX('jsxAlert', {
+const helloHistoryCall = () => {
+  jsxInterface.evaluateJSX('historyCall', {
+    func: 'jsxAlert',
+    params: {
       content: 'Hello World',
-    })
-  }
+    },
+  })
+}
 
-  helloHistoryCall() {
-    jsxInterface.evaluateJSX('historyCall', {
-      func: 'jsxAlert',
-      params: {
-        content: 'Hello World',
-      },
-    })
-  }
-
-  createNewDocument() {
-    jsxInterface.evaluateJSX('createNewDocument', {
-      content: 'Hello World',
-    })
-  }
+const createNewDocument = () => {
+  jsxInterface.evaluateJSX('createNewDocument', {
+    content: 'Hello World',
+  })
 }
 </script>
 

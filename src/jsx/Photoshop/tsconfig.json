@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "target": "es3",
+    "target": "es5",
     "module": "none",
     "noLib": true,
     "typeRoots": [
@@ -10,7 +10,9 @@
       "./@types/Photoshop/**/*"
     ]
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "./*.ts",
     "./@types/Photoshop/**/*",

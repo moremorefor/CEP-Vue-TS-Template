@@ -1,10 +1,10 @@
 // global $, window, location, CSInterface, SystemPath, themeManager
 
 import * as fs from 'fs'
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import { CSInterface, SystemPath } from 'csinterface-ts'
 import App from './App.vue'
-import { store } from './store'
 import cepUtils from './libs/cepUtils'
 import configManager from './libs/configManager'
 import JSXInterface from './libs/jsxInterface'
@@ -67,11 +67,7 @@ async function init(): Promise<any> {
   }
 
   /* eslint-disable no-new */
-  new Vue({
-    components: { App },
-    template: '<App/>',
-    store,
-  }).$mount('#app')
+  createApp(App).use(createPinia()).mount('#app')
 
   $('#btn_reload').on('click', (): void => {
     window.location.reload()

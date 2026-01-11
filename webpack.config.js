@@ -13,7 +13,7 @@ module.exports = {
     modules: ['./src/js', 'node_modules'],
     extensions: ['.js', '.vue', '.ts'],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm-bundler.js',
     },
   },
   module: {
